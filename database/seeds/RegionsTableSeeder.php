@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use indiemesh\Models\Country;
-use indiemesh\Models\Region;
+use Indiemesh\Models\Country;
+use Indiemesh\Models\Region;
 
 class RegionsTableSeeder extends Seeder
 {

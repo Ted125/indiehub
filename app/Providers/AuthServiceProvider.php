@@ -1,6 +1,6 @@
 <?php
 
-namespace indiemesh\Providers;
+namespace Indiemesh\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'indiemesh\Model' => 'indiemesh\Policies\ModelPolicy',
+        // 'Indiemesh\Model' => 'Indiemesh\Policies\ModelPolicy',
     ];
 
     /**

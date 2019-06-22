@@ -169,11 +169,11 @@ return [
         /*
          * Application Service Providers...
          */
-        indiemesh\Providers\AppServiceProvider::class,
-        indiemesh\Providers\AuthServiceProvider::class,
-        // indiemesh\Providers\BroadcastServiceProvider::class,
-        indiemesh\Providers\EventServiceProvider::class,
-        indiemesh\Providers\RouteServiceProvider::class,
+        Indiemesh\Providers\AppServiceProvider::class,
+        Indiemesh\Providers\AuthServiceProvider::class,
+        // Indiemesh\Providers\BroadcastServiceProvider::class,
+        Indiemesh\Providers\EventServiceProvider::class,
+        Indiemesh\Providers\RouteServiceProvider::class,
 
     ],
 

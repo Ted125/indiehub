@@ -1,6 +1,6 @@
 <?php
 
-namespace indiemesh\Exceptions;
+namespace Indiemesh\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

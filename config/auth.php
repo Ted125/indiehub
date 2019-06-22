@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => indiemesh\User::class,
+            'model' => Indiemesh\User::class,
         ],
 
         // 'users' => [

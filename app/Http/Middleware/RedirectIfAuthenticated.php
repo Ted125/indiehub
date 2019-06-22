@@ -1,6 +1,6 @@
 <?php
 
-namespace indiemesh\Http\Middleware;
+namespace Indiemesh\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use indiemesh\Models\Country;
+use Indiemesh\Models\Country;
 
 class CountriesTableSeeder extends Seeder
 {

@@ -33,7 +33,7 @@
     },
     "autoload": {
         "psr-4": {
-            "indiemesh\\": "app/"
+            "Indiemesh\\": "app/"
         },
         "classmap": [
             "database/seeds",

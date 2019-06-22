@@ -1,6 +1,6 @@
 <?php
 
-namespace indiemesh\Providers;
+namespace Indiemesh\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;

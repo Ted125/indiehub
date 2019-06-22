@@ -1,9 +1,9 @@
 <?php
 
-namespace indiemesh\Http\Controllers\Auth;
+namespace Indiemesh\Http\Controllers\Auth;
 
-use indiemesh\User;
-use indiemesh\Http\Controllers\Controller;
+use Indiemesh\User;
+use Indiemesh\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -59,7 +59,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \indiemesh\User
+     * @return \Indiemesh\User
      */
     protected function create(array $data)
     {

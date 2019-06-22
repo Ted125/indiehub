@@ -1,6 +1,6 @@
 <?php
 
-namespace indiemesh\Models;
+namespace Indiemesh\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

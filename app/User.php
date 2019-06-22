@@ -1,6 +1,6 @@
 <?php
 
-namespace indiemesh;
+namespace Indiemesh;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

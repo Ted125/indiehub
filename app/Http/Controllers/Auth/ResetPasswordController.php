@@ -1,8 +1,8 @@
 <?php
 
-namespace indiemesh\Http\Controllers\Auth;
+namespace Indiemesh\Http\Controllers\Auth;
 
-use indiemesh\Http\Controllers\Controller;
+use Indiemesh\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ResetPasswordController extends Controller
