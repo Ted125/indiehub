@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace indiemesh\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
