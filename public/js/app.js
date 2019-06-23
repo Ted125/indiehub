@@ -88967,6 +88967,115 @@ GameList.propTypes = {
 
 /***/ }),
 
+/***/ "./resources/js/components/layouts/Footer.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/layouts/Footer.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Footer; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/CssBaseline */ "./node_modules/@material-ui/core/esm/CssBaseline/index.js");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Container */ "./node_modules/@material-ui/core/esm/Container/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var _material_ui_core_Link__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Link */ "./node_modules/@material-ui/core/esm/Link/index.js");
+
+
+
+
+
+
+
+
+var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["makeStyles"])(function (theme) {
+  return {
+    footer: {
+      padding: theme.spacing(2, 0, 2, 0),
+      marginTop: 'auto',
+      backgroundColor: theme.palette.grey[200]
+    }
+  };
+});
+function Footer() {
+  var classes = useStyles();
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
+    className: classes.footer
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    maxWidth: "lg"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    container: true,
+    spacing: 2,
+    justify: "space-between"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    item: true,
+    container: true,
+    spacing: 2,
+    xs: 12,
+    sm: 6,
+    md: 3
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    item: true,
+    xs: 2
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    component: react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
+    to: "/"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "/img/Indiemesh Logo.png",
+    width: "32",
+    height: "32"
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    item: true,
+    xs: 10
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    variant: "body1",
+    color: "textSecondary"
+  }, "\xA9 ", new Date().getFullYear(), " Indiemesh"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    item: true,
+    container: true,
+    spacing: 2,
+    xs: 12,
+    sm: 6,
+    md: 3
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    item: true,
+    xs: 3
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    href: "#",
+    color: "textSecondary",
+    variant: "body2"
+  }, "About")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    item: true,
+    xs: 3
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    href: "#",
+    color: "textSecondary",
+    variant: "body2"
+  }, "Contact")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    item: true,
+    xs: 3
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    href: "#",
+    color: "textSecondary",
+    variant: "body2"
+  }, "Terms")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    item: true,
+    xs: 3
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    href: "#",
+    color: "textSecondary",
+    variant: "body2"
+  }, "Privacy")))))));
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/layouts/Header.js":
 /*!***************************************************!*\
   !*** ./resources/js/components/layouts/Header.js ***!
@@ -89128,10 +89237,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/CssBaseline */ "./node_modules/@material-ui/core/esm/CssBaseline/index.js");
 /* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Container */ "./node_modules/@material-ui/core/esm/Container/index.js");
 /* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
-/* harmony import */ var _layouts_Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../layouts/Header */ "./resources/js/components/layouts/Header.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _layouts_Header__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../layouts/Header */ "./resources/js/components/layouts/Header.js");
 /* harmony import */ var _FeaturedGame__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../FeaturedGame */ "./resources/js/components/FeaturedGame.js");
-/* harmony import */ var _GameList__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../GameList */ "./resources/js/components/GameList.js");
+/* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../layouts/Footer */ "./resources/js/components/layouts/Footer.js");
+/* harmony import */ var _GameList__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../GameList */ "./resources/js/components/GameList.js");
 
 
 
@@ -89140,7 +89250,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["makeStyles"])(function (theme) {
+
+var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["makeStyles"])(function (theme) {
   return {
     lists: {
       marginTop: theme.spacing(5),
@@ -89150,7 +89261,7 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["ma
 });
 function LandingPage() {
   var classes = useStyles();
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Header__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FeaturedGame__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Header__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FeaturedGame__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2__["default"], {
     maxWidth: "lg",
     className: classes.lists
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -89159,29 +89270,29 @@ function LandingPage() {
     direction: "column"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
     item: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_GameList__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_GameList__WEBPACK_IMPORTED_MODULE_8__["default"], {
     title: "Hot Games",
     caption: "Discover what's trending in the community",
     displayCount: 8
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
     item: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_GameList__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_GameList__WEBPACK_IMPORTED_MODULE_8__["default"], {
     title: "New Games",
     caption: "Discover new releases",
     displayCount: 8
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
     item: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_GameList__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_GameList__WEBPACK_IMPORTED_MODULE_8__["default"], {
     title: "Unity Games",
     caption: "Games made with Unity engine",
     displayCount: 4
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
     item: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_GameList__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_GameList__WEBPACK_IMPORTED_MODULE_8__["default"], {
     title: "Unreal Games",
     caption: "Games made with Unreal engine",
     displayCount: 4
-  })))));
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Footer__WEBPACK_IMPORTED_MODULE_7__["default"], null));
 }
 
 /***/ }),

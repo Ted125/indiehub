@@ -2,9 +2,10 @@ import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Header from '../layouts/Header';
 import { makeStyles } from '@material-ui/core/styles';
+import Header from '../layouts/Header';
 import FeaturedGame from '../FeaturedGame';
+import Footer from '../layouts/Footer';
 import GameList from '../GameList';
 
 const useStyles = makeStyles(theme => ({
@@ -38,6 +39,7 @@ export default function LandingPage() {
                     </Grid>
                 </Grid>
             </Container>
+            <Footer />
         </React.Fragment>
     );
 }
