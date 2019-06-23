@@ -22,7 +22,7 @@ export default class GameList extends Component {
 
         for(var i = 0; i < this.props.displayCount; i++){
             games.push(
-                <Grid item xs={3} key={i}>
+                <Grid item xs={12} sm={6} md={3} key={i}>
                     <GameCard />
                 </Grid>
             );
@@ -31,12 +31,12 @@ export default class GameList extends Component {
         return(
             <Grid container justify="center">
                 <Grid container justify="space-between">
-                    <Grid item xs={4}>
+                    <Grid item xs={6} sm={4}>
                         <Typography component="h1" variant="h5" color="inherit" gutterBottom>
                             {this.props.title}
                         </Typography>
                     </Grid>
-                    <Grid container item xs={2} justify="flex-end">
+                    <Grid container item xs={6} sm={4} md={2} justify="flex-end">
                         <Button variant="outlined" className={useStyles.button}>
                             See More
                         </Button>

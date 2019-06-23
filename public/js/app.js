@@ -88912,7 +88912,9 @@ function (_Component) {
       for (var i = 0; i < this.props.displayCount; i++) {
         games.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
           item: true,
-          xs: 3,
+          xs: 12,
+          sm: 6,
+          md: 3,
           key: i
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_GameCard__WEBPACK_IMPORTED_MODULE_6__["default"], null)));
       }
@@ -88925,7 +88927,8 @@ function (_Component) {
         justify: "space-between"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
         item: true,
-        xs: 4
+        xs: 6,
+        sm: 4
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__["default"], {
         component: "h1",
         variant: "h5",
@@ -88934,7 +88937,9 @@ function (_Component) {
       }, this.props.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
         container: true,
         item: true,
-        xs: 2,
+        xs: 6,
+        sm: 4,
+        md: 2,
         justify: "flex-end"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
         variant: "outlined",
