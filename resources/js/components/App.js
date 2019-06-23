@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
-import Header from './layouts/Header';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -16,7 +15,6 @@ export default class App extends Component {
         return (
             <BrowserRouter>
                 <div>
-                    <Header />
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/login" component={LoginPage} />
                     <Route exact path="/register" component={RegisterPage} />
