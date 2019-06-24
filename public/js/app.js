@@ -13589,6 +13589,1167 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/core/esm/Tab/Tab.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Tab/Tab.js ***!
+  \*******************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _ButtonBase__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../ButtonBase */ "./node_modules/@material-ui/core/esm/ButtonBase/index.js");
+/* harmony import */ var _utils_helpers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/helpers */ "./node_modules/@material-ui/core/esm/utils/helpers.js");
+/* harmony import */ var _utils_unsupportedProp__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/unsupportedProp */ "./node_modules/@material-ui/core/esm/utils/unsupportedProp.js");
+
+
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  var _extends2;
+
+  return {
+    /* Styles applied to the root element. */
+    root: _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2___default()({}, theme.typography.button, (_extends2 = {
+      maxWidth: 264,
+      minWidth: 72,
+      position: 'relative',
+      boxSizing: 'border-box',
+      minHeight: 48,
+      flexShrink: 0,
+      padding: '6px 12px'
+    }, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_extends2, theme.breakpoints.up('md'), {
+      padding: '6px 24px'
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_extends2, "overflow", 'hidden'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_extends2, "whiteSpace", 'normal'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_extends2, "textAlign", 'center'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_extends2, theme.breakpoints.up('md'), {
+      fontSize: theme.typography.pxToRem(13),
+      minWidth: 160
+    }), _extends2)),
+
+    /* Styles applied to the root element if both `icon` and `label` are provided. */
+    labelIcon: {
+      minHeight: 72,
+      paddingTop: 9,
+      '& $wrapper > *:first-child': {
+        marginBottom: 6
+      }
+    },
+
+    /* Styles applied to the root element if the parent [`Tabs`](/api/tabs/) has `textColor="inherit"`. */
+    textColorInherit: {
+      color: 'inherit',
+      opacity: 0.7,
+      '&$selected': {
+        opacity: 1
+      },
+      '&$disabled': {
+        opacity: 0.4
+      }
+    },
+
+    /* Styles applied to the root element if the parent [`Tabs`](/api/tabs/) has `textColor="primary"`. */
+    textColorPrimary: {
+      color: theme.palette.text.secondary,
+      '&$selected': {
+        color: theme.palette.primary.main
+      },
+      '&$disabled': {
+        color: theme.palette.text.disabled
+      }
+    },
+
+    /* Styles applied to the root element if the parent [`Tabs`](/api/tabs/) has `textColor="secondary"`. */
+    textColorSecondary: {
+      color: theme.palette.text.secondary,
+      '&$selected': {
+        color: theme.palette.secondary.main
+      },
+      '&$disabled': {
+        color: theme.palette.text.disabled
+      }
+    },
+
+    /* Pseudo-class applied to the root element if `selected={true}` (controlled by the Tabs component). */
+    selected: {},
+
+    /* Pseudo-class applied to the root element if `disabled={true}` (controlled by the Tabs component). */
+    disabled: {},
+
+    /* Styles applied to the root element if `fullWidth={true}` (controlled by the Tabs component). */
+    fullWidth: {
+      flexShrink: 1,
+      flexGrow: 1,
+      flexBasis: 0,
+      maxWidth: 'none'
+    },
+
+    /* Styles applied to the root element if `wrapped={true}`. */
+    wrapped: {
+      fontSize: theme.typography.pxToRem(12),
+      lineHeight: 1.5
+    },
+
+    /* Styles applied to the `icon` and `label`'s wrapper element. */
+    wrapper: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      flexDirection: 'column'
+    }
+  };
+};
+var Tab = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(function Tab(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      _props$disableFocusRi = props.disableFocusRipple,
+      disableFocusRipple = _props$disableFocusRi === void 0 ? false : _props$disableFocusRi,
+      fullWidth = props.fullWidth,
+      icon = props.icon,
+      indicator = props.indicator,
+      label = props.label,
+      onChange = props.onChange,
+      onClick = props.onClick,
+      selected = props.selected,
+      _props$textColor = props.textColor,
+      textColor = _props$textColor === void 0 ? 'inherit' : _props$textColor,
+      value = props.value,
+      _props$wrapped = props.wrapped,
+      wrapped = _props$wrapped === void 0 ? false : _props$wrapped,
+      other = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0___default()(props, ["classes", "className", "disabled", "disableFocusRipple", "fullWidth", "icon", "indicator", "label", "onChange", "onClick", "selected", "textColor", "value", "wrapped"]);
+
+  var handleChange = function handleChange(event) {
+    if (onChange) {
+      onChange(event, value);
+    }
+
+    if (onClick) {
+      onClick(event);
+    }
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_ButtonBase__WEBPACK_IMPORTED_MODULE_7__["default"], _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2___default()({
+    focusRipple: !disableFocusRipple,
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.root, classes["textColor".concat(Object(_utils_helpers__WEBPACK_IMPORTED_MODULE_8__["capitalize"])(textColor))], className, disabled && classes.disabled, selected && classes.selected, label && icon && classes.labelIcon, fullWidth && classes.fullWidth, wrapped && classes.wrapped),
+    ref: ref,
+    role: "tab",
+    "aria-selected": selected,
+    disabled: disabled,
+    onClick: handleChange
+  }, other), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("span", {
+    className: classes.wrapper
+  }, icon, label), indicator);
+});
+ true ? Tab.propTypes = {
+  /**
+   * This property isn't supported.
+   * Use the `component` property if you need to change the children structure.
+   */
+  children: _utils_unsupportedProp__WEBPACK_IMPORTED_MODULE_9__["default"],
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+
+  /**
+   * If `true`, the tab will be disabled.
+   */
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * If `true`, the  keyboard focus ripple will be disabled.
+   * `disableRipple` must also be true.
+   */
+  disableFocusRipple: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * If `true`, the ripple effect will be disabled.
+   */
+  disableRipple: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * @ignore
+   */
+  fullWidth: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * The icon element.
+   */
+  icon: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * @ignore
+   * For server-side rendering consideration, we let the selected tab
+   * render the indicator.
+   */
+  indicator: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * The label element.
+   */
+  label: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * @ignore
+   */
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * @ignore
+   */
+  onClick: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * @ignore
+   */
+  selected: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * @ignore
+   */
+  textColor: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOf(['secondary', 'primary', 'inherit']),
+
+  /**
+   * You can provide your own value. Otherwise, we fallback to the child position index.
+   */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.any,
+
+  /**
+   * Tab labels appear in a single row.
+   * They can use a second line if needed.
+   */
+  wrapped: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_6__["default"])(styles, {
+  name: 'MuiTab'
+})(Tab));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/Tab/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Tab/index.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Tab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tab */ "./node_modules/@material-ui/core/esm/Tab/Tab.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _Tab__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/Tabs/ScrollbarSize.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Tabs/ScrollbarSize.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ScrollbarSize; });
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! debounce */ "./node_modules/debounce/index.js");
+/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(debounce__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+ // < 1kb payload overhead when lodash/debounce is > 3kb.
+
+var styles = {
+  width: 99,
+  height: 99,
+  position: 'absolute',
+  top: -9999,
+  overflow: 'scroll'
+};
+/**
+ * @ignore - internal component.
+ * The component is originates from https://github.com/STORIS/react-scrollbar-size.
+ * It has been moved into the core in order to minimize the bundle size.
+ */
+
+function ScrollbarSize(props) {
+  var onChange = props.onChange,
+      other = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(props, ["onChange"]);
+
+  var scrollbarHeight = react__WEBPACK_IMPORTED_MODULE_2___default.a.useRef();
+  var nodeRef = react__WEBPACK_IMPORTED_MODULE_2___default.a.useRef(null);
+
+  var setMeasurements = function setMeasurements() {
+    scrollbarHeight.current = nodeRef.current.offsetHeight - nodeRef.current.clientHeight;
+  };
+
+  react__WEBPACK_IMPORTED_MODULE_2___default.a.useEffect(function () {
+    var handleResize = debounce__WEBPACK_IMPORTED_MODULE_4___default()(function () {
+      var prevHeight = scrollbarHeight.current;
+      setMeasurements();
+
+      if (prevHeight !== scrollbarHeight.current) {
+        onChange(scrollbarHeight.current);
+      }
+    }, 166); // Corresponds to 10 frames at 60 Hz.
+
+    window.addEventListener('resize', handleResize);
+    return function () {
+      handleResize.clear();
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [onChange]);
+  react__WEBPACK_IMPORTED_MODULE_2___default.a.useEffect(function () {
+    setMeasurements();
+    onChange(scrollbarHeight.current);
+  }, [onChange]);
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+    style: styles,
+    ref: nodeRef
+  }, other));
+}
+ true ? ScrollbarSize.propTypes = {
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired
+} : undefined;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/Tabs/TabIndicator.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Tabs/TabIndicator.js ***!
+  \*****************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _utils_helpers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/helpers */ "./node_modules/@material-ui/core/esm/utils/helpers.js");
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      position: 'absolute',
+      height: 2,
+      bottom: 0,
+      width: '100%',
+      transition: theme.transitions.create()
+    },
+
+    /* Styles applied to the root element if `color="primary"`. */
+    colorPrimary: {
+      backgroundColor: theme.palette.primary.main
+    },
+
+    /* Styles applied to the root element if `color="secondary"`. */
+    colorSecondary: {
+      backgroundColor: theme.palette.secondary.main
+    }
+  };
+};
+/**
+ * @ignore - internal component.
+ */
+
+var TabIndicator = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function TabIndicator(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      color = props.color,
+      other = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(props, ["classes", "className", "color"]);
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, classes["color".concat(Object(_utils_helpers__WEBPACK_IMPORTED_MODULE_6__["capitalize"])(color))], className),
+    ref: ref
+  }, other));
+});
+ true ? TabIndicator.propTypes = {
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * @ignore
+   * The color of the tab indicator.
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['primary', 'secondary'])
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_5__["default"])(styles, {
+  name: 'PrivateTabIndicator'
+})(TabIndicator));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/Tabs/TabScrollButton.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Tabs/TabScrollButton.js ***!
+  \********************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _internal_svg_icons_KeyboardArrowLeft__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../internal/svg-icons/KeyboardArrowLeft */ "./node_modules/@material-ui/core/esm/internal/svg-icons/KeyboardArrowLeft.js");
+/* harmony import */ var _internal_svg_icons_KeyboardArrowRight__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../internal/svg-icons/KeyboardArrowRight */ "./node_modules/@material-ui/core/esm/internal/svg-icons/KeyboardArrowRight.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _ButtonBase__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../ButtonBase */ "./node_modules/@material-ui/core/esm/ButtonBase/index.js");
+
+
+
+/* eslint-disable jsx-a11y/aria-role */
+
+
+
+
+
+
+
+var styles = {
+  /* Styles applied to the root element. */
+  root: {
+    color: 'inherit',
+    width: 40,
+    flexShrink: 0
+  }
+};
+/**
+ * @ignore - internal component.
+ */
+
+var _ref = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_internal_svg_icons_KeyboardArrowLeft__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  fontSize: "small"
+});
+
+var _ref2 = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_internal_svg_icons_KeyboardArrowRight__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  fontSize: "small"
+});
+
+var TabScrollButton = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function TabScrollButton(props, ref) {
+  var classes = props.classes,
+      classNameProp = props.className,
+      direction = props.direction,
+      onClick = props.onClick,
+      _props$visible = props.visible,
+      visible = _props$visible === void 0 ? true : _props$visible,
+      other = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(props, ["classes", "className", "direction", "onClick", "visible"]);
+
+  var className = Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, classNameProp);
+
+  if (!visible) {
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: className
+    });
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ButtonBase__WEBPACK_IMPORTED_MODULE_8__["default"], _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+    component: "div",
+    className: className,
+    onClick: onClick,
+    ref: ref,
+    role: null,
+    tabIndex: null
+  }, other), direction === 'left' ? _ref : _ref2);
+});
+ true ? TabScrollButton.propTypes = {
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * Which direction should the button indicate?
+   */
+  direction: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['left', 'right']),
+
+  /**
+   * Callback to execute for button press.
+   */
+  onClick: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * Should the button be present or just consume space.
+   */
+  visible: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_7__["default"])(styles, {
+  name: 'PrivateTabScrollButton'
+})(TabScrollButton));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/Tabs/Tabs.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Tabs/Tabs.js ***!
+  \*********************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var warning__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! warning */ "./node_modules/warning/warning.js");
+/* harmony import */ var warning__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(warning__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var react_event_listener__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-event-listener */ "./node_modules/react-event-listener/dist/react-event-listener.cjs.js");
+/* harmony import */ var react_event_listener__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(react_event_listener__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! debounce */ "./node_modules/debounce/index.js");
+/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(debounce__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var normalize_scroll_left__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! normalize-scroll-left */ "./node_modules/normalize-scroll-left/esm/main.js");
+/* harmony import */ var _internal_animate__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../internal/animate */ "./node_modules/@material-ui/core/esm/internal/animate.js");
+/* harmony import */ var _ScrollbarSize__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./ScrollbarSize */ "./node_modules/@material-ui/core/esm/Tabs/ScrollbarSize.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _TabIndicator__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./TabIndicator */ "./node_modules/@material-ui/core/esm/Tabs/TabIndicator.js");
+/* harmony import */ var _TabScrollButton__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./TabScrollButton */ "./node_modules/@material-ui/core/esm/Tabs/TabScrollButton.js");
+/* harmony import */ var _utils_withForwardedRef__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../utils/withForwardedRef */ "./node_modules/@material-ui/core/esm/utils/withForwardedRef.js");
+
+
+
+
+
+
+
+
+
+/* eslint-disable no-restricted-globals */
+
+
+
+
+
+ // < 1kb payload overhead when lodash/debounce is > 3kb.
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      overflow: 'hidden',
+      minHeight: 48,
+      WebkitOverflowScrolling: 'touch' // Add iOS momentum scrolling.
+
+    },
+
+    /* Styles applied to the flex container element. */
+    flexContainer: {
+      display: 'flex'
+    },
+
+    /* Styles applied to the flex container element if `centered={true}` & `!variant="scrollable"`. */
+    centered: {
+      justifyContent: 'center'
+    },
+
+    /* Styles applied to the tablist element. */
+    scroller: {
+      position: 'relative',
+      display: 'inline-block',
+      flex: '1 1 auto',
+      whiteSpace: 'nowrap'
+    },
+
+    /* Styles applied to the tablist element if `!variant="scrollable"`. */
+    fixed: {
+      overflowX: 'hidden',
+      width: '100%'
+    },
+
+    /* Styles applied to the tablist element if `variant="scrollable"`. */
+    scrollable: {
+      overflowX: 'scroll',
+      // Hide dimensionless scrollbar on MacOS
+      scrollbarWidth: 'none',
+      // Firefox
+      '&::-webkit-scrollbar': {
+        display: 'none' // Safari + Chrome
+
+      }
+    },
+
+    /* Styles applied to the `ScrollButtonComponent` component. */
+    scrollButtons: {},
+
+    /* Styles applied to the `ScrollButtonComponent` component if `scrollButtons="auto"` or scrollButtons="desktop"`. */
+    scrollButtonsDesktop: _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()({}, theme.breakpoints.down('xs'), {
+      display: 'none'
+    }),
+
+    /* Styles applied to the `TabIndicator` component. */
+    indicator: {}
+  };
+};
+
+var Tabs =
+/*#__PURE__*/
+function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6___default()(Tabs, _React$Component);
+
+  function Tabs() {
+    var _this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default()(this, Tabs);
+
+    _this = _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Tabs).call(this));
+    _this.state = {
+      indicatorStyle: {},
+      scrollerStyle: {
+        overflow: 'hidden',
+        marginBottom: null
+      },
+      showLeftScroll: false,
+      showRightScroll: false,
+      mounted: false
+    };
+
+    _this.getConditionalElements = function () {
+      var _this$props = _this.props,
+          classes = _this$props.classes,
+          ScrollButtonComponent = _this$props.ScrollButtonComponent,
+          scrollButtons = _this$props.scrollButtons,
+          theme = _this$props.theme,
+          variant = _this$props.variant;
+      var _this$state = _this.state,
+          showLeftScroll = _this$state.showLeftScroll,
+          showRightScroll = _this$state.showRightScroll;
+      var conditionalElements = {};
+      var scrollable = variant === 'scrollable';
+      conditionalElements.scrollbarSizeListener = scrollable ? react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_ScrollbarSize__WEBPACK_IMPORTED_MODULE_16__["default"], {
+        className: classes.scrollable,
+        onChange: _this.handleScrollbarSizeChange
+      }) : null;
+      var scrollButtonsActive = showLeftScroll || showRightScroll;
+      var showScrollButtons = scrollable && (scrollButtons === 'auto' && scrollButtonsActive || scrollButtons === 'desktop' || scrollButtons === 'on');
+      conditionalElements.scrollButtonLeft = showScrollButtons ? react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(ScrollButtonComponent, {
+        direction: theme.direction === 'rtl' ? 'right' : 'left',
+        onClick: _this.handleLeftScrollClick,
+        visible: showLeftScroll,
+        className: Object(clsx__WEBPACK_IMPORTED_MODULE_11__["default"])(classes.scrollButtons, scrollButtons !== 'on' && classes.scrollButtonsDesktop)
+      }) : null;
+      conditionalElements.scrollButtonRight = showScrollButtons ? react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(ScrollButtonComponent, {
+        direction: theme.direction === 'rtl' ? 'left' : 'right',
+        onClick: _this.handleRightScrollClick,
+        visible: showRightScroll,
+        className: Object(clsx__WEBPACK_IMPORTED_MODULE_11__["default"])(classes.scrollButtons, scrollButtons !== 'on' && classes.scrollButtonsDesktop)
+      }) : null;
+      return conditionalElements;
+    };
+
+    _this.getTabsMeta = function (value, direction) {
+      var tabsMeta;
+
+      if (_this.tabsRef) {
+        var rect = _this.tabsRef.getBoundingClientRect(); // create a new object with ClientRect class props + scrollLeft
+
+
+        tabsMeta = {
+          clientWidth: _this.tabsRef.clientWidth,
+          scrollLeft: _this.tabsRef.scrollLeft,
+          scrollLeftNormalized: Object(normalize_scroll_left__WEBPACK_IMPORTED_MODULE_14__["getNormalizedScrollLeft"])(_this.tabsRef, direction),
+          scrollWidth: _this.tabsRef.scrollWidth,
+          left: rect.left,
+          right: rect.right
+        };
+      }
+
+      var tabMeta;
+
+      if (_this.tabsRef && value !== false) {
+        var children = _this.tabsRef.children[0].children;
+
+        if (children.length > 0) {
+          var tab = children[_this.valueToIndex.get(value)];
+
+           true ? warning__WEBPACK_IMPORTED_MODULE_10___default()(tab, ["Material-UI: the value provided `".concat(value, "` to the Tabs component is invalid."), 'None of the Tabs children have this value.', _this.valueToIndex.keys ? "You can provide one of the following values: ".concat(Array.from(_this.valueToIndex.keys()).join(', '), ".") : null].join('\n')) : undefined;
+          tabMeta = tab ? tab.getBoundingClientRect() : null;
+        }
+      }
+
+      return {
+        tabsMeta: tabsMeta,
+        tabMeta: tabMeta
+      };
+    };
+
+    _this.handleLeftScrollClick = function () {
+      _this.moveTabsScroll(-_this.tabsRef.clientWidth);
+    };
+
+    _this.handleRightScrollClick = function () {
+      _this.moveTabsScroll(_this.tabsRef.clientWidth);
+    };
+
+    _this.handleScrollbarSizeChange = function (scrollbarHeight) {
+      _this.setState({
+        scrollerStyle: {
+          overflow: null,
+          marginBottom: -scrollbarHeight
+        }
+      });
+    };
+
+    _this.handleTabsRef = function (ref) {
+      _this.tabsRef = ref;
+    };
+
+    _this.moveTabsScroll = function (delta) {
+      var theme = _this.props.theme;
+      var multiplier = theme.direction === 'rtl' ? -1 : 1;
+      var nextScrollLeft = _this.tabsRef.scrollLeft + delta * multiplier; // Fix for Edge
+
+      var invert = theme.direction === 'rtl' && Object(normalize_scroll_left__WEBPACK_IMPORTED_MODULE_14__["detectScrollType"])() === 'reverse' ? -1 : 1;
+
+      _this.scroll(invert * nextScrollLeft);
+    };
+
+    _this.scrollSelectedIntoView = function () {
+      var _this$props2 = _this.props,
+          theme = _this$props2.theme,
+          value = _this$props2.value;
+
+      var _this$getTabsMeta = _this.getTabsMeta(value, theme.direction),
+          tabsMeta = _this$getTabsMeta.tabsMeta,
+          tabMeta = _this$getTabsMeta.tabMeta;
+
+      if (!tabMeta || !tabsMeta) {
+        return;
+      }
+
+      if (tabMeta.left < tabsMeta.left) {
+        // left side of button is out of view
+        var nextScrollLeft = tabsMeta.scrollLeft + (tabMeta.left - tabsMeta.left);
+
+        _this.scroll(nextScrollLeft);
+      } else if (tabMeta.right > tabsMeta.right) {
+        // right side of button is out of view
+        var _nextScrollLeft = tabsMeta.scrollLeft + (tabMeta.right - tabsMeta.right);
+
+        _this.scroll(_nextScrollLeft);
+      }
+    };
+
+    _this.scroll = function (value) {
+      Object(_internal_animate__WEBPACK_IMPORTED_MODULE_15__["default"])('scrollLeft', _this.tabsRef, value);
+    };
+
+    _this.updateScrollButtonState = function () {
+      var _this$props3 = _this.props,
+          scrollButtons = _this$props3.scrollButtons,
+          theme = _this$props3.theme,
+          variant = _this$props3.variant;
+      var scrollable = variant === 'scrollable';
+
+      if (scrollable && scrollButtons !== 'off') {
+        var _this$tabsRef = _this.tabsRef,
+            scrollWidth = _this$tabsRef.scrollWidth,
+            clientWidth = _this$tabsRef.clientWidth;
+        var scrollLeft = Object(normalize_scroll_left__WEBPACK_IMPORTED_MODULE_14__["getNormalizedScrollLeft"])(_this.tabsRef, theme.direction); // use 1 for the potential rounding error with browser zooms.
+
+        var showLeftScroll = theme.direction === 'rtl' ? scrollLeft < scrollWidth - clientWidth - 1 : scrollLeft > 1;
+        var showRightScroll = theme.direction !== 'rtl' ? scrollLeft < scrollWidth - clientWidth - 1 : scrollLeft > 1;
+
+        if (showLeftScroll !== _this.state.showLeftScroll || showRightScroll !== _this.state.showRightScroll) {
+          _this.setState({
+            showLeftScroll: showLeftScroll,
+            showRightScroll: showRightScroll
+          });
+        }
+      }
+    };
+
+    if (typeof window !== 'undefined') {
+      _this.handleResize = debounce__WEBPACK_IMPORTED_MODULE_13___default()(function () {
+        _this.updateIndicatorState(_this.props);
+
+        _this.updateScrollButtonState();
+      }, 166); // Corresponds to 10 frames at 60 Hz.
+
+      _this.handleTabsScroll = debounce__WEBPACK_IMPORTED_MODULE_13___default()(function () {
+        _this.updateScrollButtonState();
+      }, 166); // Corresponds to 10 frames at 60 Hz.
+    }
+
+    return _this;
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default()(Tabs, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState({
+        mounted: true
+      });
+      this.updateIndicatorState(this.props);
+      this.updateScrollButtonState();
+
+      if (this.props.action) {
+        this.props.action({
+          updateIndicator: this.handleResize
+        });
+      }
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      // The index might have changed at the same time.
+      // We need to check again the right indicator position.
+      this.updateIndicatorState(this.props);
+      this.updateScrollButtonState();
+
+      if (this.state.indicatorStyle !== prevState.indicatorStyle) {
+        this.scrollSelectedIntoView();
+      }
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.handleResize.clear();
+      this.handleTabsScroll.clear();
+    }
+  }, {
+    key: "updateIndicatorState",
+    value: function updateIndicatorState(props) {
+      var theme = props.theme,
+          value = props.value;
+
+      var _this$getTabsMeta2 = this.getTabsMeta(value, theme.direction),
+          tabsMeta = _this$getTabsMeta2.tabsMeta,
+          tabMeta = _this$getTabsMeta2.tabMeta;
+
+      var left = 0;
+
+      if (tabMeta && tabsMeta) {
+        var correction = theme.direction === 'rtl' ? tabsMeta.scrollLeftNormalized + tabsMeta.clientWidth - tabsMeta.scrollWidth : tabsMeta.scrollLeft;
+        left = Math.round(tabMeta.left - tabsMeta.left + correction);
+      }
+
+      var indicatorStyle = {
+        left: left,
+        // May be wrong until the font is loaded.
+        width: tabMeta ? Math.round(tabMeta.width) : 0
+      };
+
+      if ((indicatorStyle.left !== this.state.indicatorStyle.left || indicatorStyle.width !== this.state.indicatorStyle.width) && !isNaN(indicatorStyle.left) && !isNaN(indicatorStyle.width)) {
+        this.setState({
+          indicatorStyle: indicatorStyle
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$props4 = this.props,
+          action = _this$props4.action,
+          centered = _this$props4.centered,
+          childrenProp = _this$props4.children,
+          classes = _this$props4.classes,
+          className = _this$props4.className,
+          Component = _this$props4.component,
+          indicatorColor = _this$props4.indicatorColor,
+          innerRef = _this$props4.innerRef,
+          onChange = _this$props4.onChange,
+          ScrollButtonComponent = _this$props4.ScrollButtonComponent,
+          scrollButtons = _this$props4.scrollButtons,
+          _this$props4$TabIndic = _this$props4.TabIndicatorProps,
+          TabIndicatorProps = _this$props4$TabIndic === void 0 ? {} : _this$props4$TabIndic,
+          textColor = _this$props4.textColor,
+          theme = _this$props4.theme,
+          value = _this$props4.value,
+          variant = _this$props4.variant,
+          other = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_this$props4, ["action", "centered", "children", "classes", "className", "component", "indicatorColor", "innerRef", "onChange", "ScrollButtonComponent", "scrollButtons", "TabIndicatorProps", "textColor", "theme", "value", "variant"]);
+
+      var scrollable = variant === 'scrollable';
+       true ? warning__WEBPACK_IMPORTED_MODULE_10___default()(!centered || !scrollable, 'Material-UI: you can not use the `centered={true}` and `variant="scrollable"` properties ' + 'at the same time on a `Tabs` component.') : undefined;
+      var indicator = react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_TabIndicator__WEBPACK_IMPORTED_MODULE_18__["default"], _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+        className: classes.indicator,
+        color: indicatorColor
+      }, TabIndicatorProps, {
+        style: _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({}, this.state.indicatorStyle, TabIndicatorProps.style)
+      }));
+      this.valueToIndex = new Map();
+      var childIndex = 0;
+      var children = react__WEBPACK_IMPORTED_MODULE_8___default.a.Children.map(childrenProp, function (child) {
+        if (!react__WEBPACK_IMPORTED_MODULE_8___default.a.isValidElement(child)) {
+          return null;
+        }
+
+         true ? warning__WEBPACK_IMPORTED_MODULE_10___default()(child.type !== react__WEBPACK_IMPORTED_MODULE_8___default.a.Fragment, ["Material-UI: the Tabs component doesn't accept a Fragment as a child.", 'Consider providing an array instead.'].join('\n')) : undefined;
+        var childValue = child.props.value === undefined ? childIndex : child.props.value;
+
+        _this2.valueToIndex.set(childValue, childIndex);
+
+        var selected = childValue === value;
+        childIndex += 1;
+        return react__WEBPACK_IMPORTED_MODULE_8___default.a.cloneElement(child, {
+          fullWidth: variant === 'fullWidth',
+          indicator: selected && !_this2.state.mounted && indicator,
+          selected: selected,
+          onChange: onChange,
+          textColor: textColor,
+          value: childValue
+        });
+      });
+      var conditionalElements = this.getConditionalElements();
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Component, _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+        className: Object(clsx__WEBPACK_IMPORTED_MODULE_11__["default"])(classes.root, className),
+        ref: innerRef
+      }, other), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_event_listener__WEBPACK_IMPORTED_MODULE_12___default.a, {
+        target: "window",
+        onResize: this.handleResize
+      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
+        className: classes.flexContainer
+      }, conditionalElements.scrollButtonLeft, conditionalElements.scrollbarSizeListener, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
+        className: Object(clsx__WEBPACK_IMPORTED_MODULE_11__["default"])(classes.scroller, scrollable ? classes.scrollable : classes.fixed),
+        style: this.state.scrollerStyle,
+        ref: this.handleTabsRef,
+        role: "tablist",
+        onScroll: this.handleTabsScroll
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
+        className: Object(clsx__WEBPACK_IMPORTED_MODULE_11__["default"])(classes.flexContainer, centered && !scrollable && classes.centered)
+      }, children), this.state.mounted && indicator), conditionalElements.scrollButtonRight));
+    }
+  }]);
+
+  return Tabs;
+}(react__WEBPACK_IMPORTED_MODULE_8___default.a.Component);
+
+ true ? Tabs.propTypes = {
+  /**
+   * Callback fired when the component mounts.
+   * This is useful when you want to trigger an action programmatically.
+   * It currently only supports `updateIndicator()` action.
+   *
+   * @param {object} actions This object contains all possible actions
+   * that can be triggered programmatically.
+   */
+  action: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.func,
+
+  /**
+   * If `true`, the tabs will be centered.
+   * This property is intended for large views.
+   */
+  centered: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.bool,
+
+  /**
+   * The content of the component.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.string,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a DOM element or a component.
+   */
+  component: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.elementType,
+
+  /**
+   * Determines the color of the indicator.
+   */
+  indicatorColor: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.oneOf(['secondary', 'primary']),
+
+  /**
+   * @ignore
+   * from `withForwardRef`
+   */
+  innerRef: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.func, prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.object]),
+
+  /**
+   * Callback fired when the value changes.
+   *
+   * @param {object} event The event source of the callback
+   * @param {any} value We default to the index of the child (number)
+   */
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.func,
+
+  /**
+   * The component used to render the scroll buttons.
+   */
+  ScrollButtonComponent: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.elementType,
+
+  /**
+   * Determine behavior of scroll buttons when tabs are set to scroll:
+   *
+   * - `auto` will only present them when not all the items are visible.
+   * - `desktop` will only present them on medium and larger viewports.
+   * - `on` will always present them.
+   * - `off` will never present them.
+   */
+  scrollButtons: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.oneOf(['auto', 'desktop', 'on', 'off']),
+
+  /**
+   * Properties applied to the `TabIndicator` element.
+   */
+  TabIndicatorProps: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.object,
+
+  /**
+   * Determines the color of the `Tab`.
+   */
+  textColor: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.oneOf(['secondary', 'primary', 'inherit']),
+
+  /**
+   * @ignore
+   */
+  theme: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.object.isRequired,
+
+  /**
+   * The value of the currently selected `Tab`.
+   * If you don't want any selected `Tab`, you can set this property to `false`.
+   */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.any,
+
+  /**
+   *  Determines additional display behavior of the tabs:
+   *
+   *  - `scrollable` will invoke scrolling properties and allow for horizontally
+   *  scrolling (or swiping) of the tab bar.
+   *  -`fullWidth` will make the tabs grow to use all the available space,
+   *  which should be used for small views, like on mobile.
+   *  - `standard` will render the default state.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.oneOf(['standard', 'scrollable', 'fullWidth'])
+} : undefined;
+Tabs.defaultProps = {
+  centered: false,
+  component: 'div',
+  indicatorColor: 'secondary',
+  ScrollButtonComponent: _TabScrollButton__WEBPACK_IMPORTED_MODULE_19__["default"],
+  scrollButtons: 'auto',
+  textColor: 'inherit',
+  variant: 'standard'
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_17__["default"])(styles, {
+  name: 'MuiTabs',
+  withTheme: true
+})(Object(_utils_withForwardedRef__WEBPACK_IMPORTED_MODULE_20__["default"])(Tabs)));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/Tabs/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Tabs/index.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Tabs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tabs */ "./node_modules/@material-ui/core/esm/Tabs/Tabs.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _Tabs__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/core/esm/TextField/TextField.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/TextField/TextField.js ***!
@@ -14805,6 +15966,70 @@ var SwitchBase = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(functio
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/core/esm/internal/animate.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/animate.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function easeInOutSin(time) {
+  return (1 + Math.sin(Math.PI * time - Math.PI / 2)) / 2;
+}
+
+function animate(prop, element, to) {
+  var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+  var cb = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : function () {};
+  var _options$ease = options.ease,
+      ease = _options$ease === void 0 ? easeInOutSin : _options$ease,
+      _options$duration = options.duration,
+      duration = _options$duration === void 0 ? 300 : _options$duration;
+  var start = null;
+  var from = element[prop];
+  var cancelled = false;
+
+  var cancel = function cancel() {
+    cancelled = true;
+  };
+
+  var step = function step(timestamp) {
+    if (cancelled) {
+      cb(new Error('Animation cancelled'));
+      return;
+    }
+
+    if (start === null) {
+      start = timestamp;
+    }
+
+    var time = Math.min(1, (timestamp - start) / duration);
+    element[prop] = ease(time) * (to - from) + from;
+
+    if (time >= 1) {
+      requestAnimationFrame(function () {
+        cb(null);
+      });
+      return;
+    }
+
+    requestAnimationFrame(step);
+  };
+
+  if (from === to) {
+    cb(new Error('Element already at target position'));
+    return cancel;
+  }
+
+  requestAnimationFrame(step);
+  return cancel;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (animate);
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/core/esm/internal/svg-icons/ArrowDropDown.js":
 /*!********************************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/ArrowDropDown.js ***!
@@ -14922,6 +16147,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (Object(_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__["default"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
   d: "M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"
 }), 'IndeterminateCheckBox'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/internal/svg-icons/KeyboardArrowLeft.js":
+/*!************************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/KeyboardArrowLeft.js ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _createSvgIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createSvgIcon */ "./node_modules/@material-ui/core/esm/internal/svg-icons/createSvgIcon.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__["default"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  d: "M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+}), 'KeyboardArrowLeft'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/internal/svg-icons/KeyboardArrowRight.js":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/KeyboardArrowRight.js ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _createSvgIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createSvgIcon */ "./node_modules/@material-ui/core/esm/internal/svg-icons/createSvgIcon.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__["default"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  d: "M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+}), 'KeyboardArrowRight'));
 
 /***/ }),
 
@@ -16080,7 +17353,7 @@ var defaultTheme = Object(_createMuiTheme__WEBPACK_IMPORTED_MODULE_0__["default"
 /*!************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/index.js ***!
   \************************************************************/
-/*! exports provided: createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, useTheme, withStyles, withTheme, hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, easing, duration, formatMs, isString, isNumber */
+/*! exports provided: hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, easing, duration, formatMs, isString, isNumber, useTheme, withStyles, withTheme */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58665,6 +59938,101 @@ var index = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext || create
 
 /***/ }),
 
+/***/ "./node_modules/normalize-scroll-left/esm/main.js":
+/*!********************************************************!*\
+  !*** ./node_modules/normalize-scroll-left/esm/main.js ***!
+  \********************************************************/
+/*! exports provided: _setScrollType, detectScrollType, getNormalizedScrollLeft, setNormalizedScrollLeft */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_setScrollType", function() { return _setScrollType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "detectScrollType", function() { return detectScrollType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getNormalizedScrollLeft", function() { return getNormalizedScrollLeft; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setNormalizedScrollLeft", function() { return setNormalizedScrollLeft; });
+// Based on https://github.com/react-bootstrap/dom-helpers/blob/master/src/util/inDOM.js
+var inDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+var cachedType;
+function _setScrollType(type) {
+    cachedType = type;
+}
+// Based on the jquery plugin https://github.com/othree/jquery.rtl-scroll-type
+function detectScrollType() {
+    if (cachedType) {
+        return cachedType;
+    }
+    if (!inDOM || !window.document.body) {
+        return 'indeterminate';
+    }
+    var dummy = window.document.createElement('div');
+    dummy.appendChild(document.createTextNode('ABCD'));
+    dummy.dir = 'rtl';
+    dummy.style.fontSize = '14px';
+    dummy.style.width = '4px';
+    dummy.style.height = '1px';
+    dummy.style.position = 'absolute';
+    dummy.style.top = '-1000px';
+    dummy.style.overflow = 'scroll';
+    document.body.appendChild(dummy);
+    cachedType = 'reverse';
+    if (dummy.scrollLeft > 0) {
+        cachedType = 'default';
+    }
+    else {
+        dummy.scrollLeft = 1;
+        if (dummy.scrollLeft === 0) {
+            cachedType = 'negative';
+        }
+    }
+    document.body.removeChild(dummy);
+    return cachedType;
+}
+// Based on https://stackoverflow.com/a/24394376
+function getNormalizedScrollLeft(element, direction) {
+    var scrollLeft = element.scrollLeft;
+    // Perform the calculations only when direction is rtl to avoid messing up the ltr bahavior
+    if (direction !== 'rtl') {
+        return scrollLeft;
+    }
+    var type = detectScrollType();
+    if (type === 'indeterminate') {
+        return Number.NaN;
+    }
+    switch (type) {
+        case 'negative':
+            return element.scrollWidth - element.clientWidth + scrollLeft;
+        case 'reverse':
+            return element.scrollWidth - element.clientWidth - scrollLeft;
+    }
+    return scrollLeft;
+}
+function setNormalizedScrollLeft(element, scrollLeft, direction) {
+    // Perform the calculations only when direction is rtl to avoid messing up the ltr bahavior
+    if (direction !== 'rtl') {
+        element.scrollLeft = scrollLeft;
+        return;
+    }
+    var type = detectScrollType();
+    if (type === 'indeterminate') {
+        return;
+    }
+    switch (type) {
+        case 'negative':
+            element.scrollLeft = element.clientWidth - element.scrollWidth + scrollLeft;
+            break;
+        case 'reverse':
+            element.scrollLeft = element.scrollWidth - element.clientWidth - scrollLeft;
+            break;
+        default:
+            element.scrollLeft = scrollLeft;
+            break;
+    }
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/object-assign/index.js":
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
@@ -83702,6 +85070,200 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react-event-listener/dist/react-event-listener.cjs.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/react-event-listener/dist/react-event-listener.cjs.js ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var _classCallCheck = _interopDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js"));
+var _createClass = _interopDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js"));
+var _possibleConstructorReturn = _interopDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js"));
+var _getPrototypeOf = _interopDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js"));
+var _inherits = _interopDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/inherits.js"));
+var _typeof = _interopDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/typeof.js"));
+var _objectWithoutProperties = _interopDefault(__webpack_require__(/*! @babel/runtime/helpers/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/objectWithoutProperties.js"));
+var _extends = _interopDefault(__webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js"));
+var React = _interopDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var PropTypes = _interopDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+var warning = _interopDefault(__webpack_require__(/*! warning */ "./node_modules/warning/warning.js"));
+
+function defineProperty(object, property, attr) {
+  return Object.defineProperty(object, property, attr);
+} // Passive options
+// Inspired by https://github.com/Modernizr/Modernizr/blob/master/feature-detects/dom/passiveeventlisteners.js
+
+
+var passiveOption = function () {
+  var cache = null;
+  return function () {
+    if (cache !== null) {
+      return cache;
+    }
+
+    var supportsPassiveOption = false;
+
+    try {
+      window.addEventListener('test', null, defineProperty({}, 'passive', {
+        get: function get() {
+          supportsPassiveOption = true;
+        }
+      }));
+    } catch (err) {//
+    }
+
+    cache = supportsPassiveOption;
+    return supportsPassiveOption;
+  }();
+}();
+
+var defaultEventOptions = {
+  capture: false,
+  passive: false
+};
+
+function mergeDefaultEventOptions(options) {
+  return _extends({}, defaultEventOptions, options);
+}
+
+function getEventListenerArgs(eventName, callback, options) {
+  var args = [eventName, callback];
+  args.push(passiveOption ? options : options.capture);
+  return args;
+}
+
+function on(target, eventName, callback, options) {
+  // eslint-disable-next-line prefer-spread
+  target.addEventListener.apply(target, getEventListenerArgs(eventName, callback, options));
+}
+
+function off(target, eventName, callback, options) {
+  // eslint-disable-next-line prefer-spread
+  target.removeEventListener.apply(target, getEventListenerArgs(eventName, callback, options));
+}
+
+function forEachListener(props, iteratee) {
+  var children = props.children,
+      target = props.target,
+      eventProps = _objectWithoutProperties(props, ["children", "target"]);
+
+  Object.keys(eventProps).forEach(function (name) {
+    if (name.substring(0, 2) !== 'on') {
+      return;
+    }
+
+    var prop = eventProps[name];
+
+    var type = _typeof(prop);
+
+    var isObject = type === 'object';
+    var isFunction = type === 'function';
+
+    if (!isObject && !isFunction) {
+      return;
+    }
+
+    var capture = name.substr(-7).toLowerCase() === 'capture';
+    var eventName = name.substring(2).toLowerCase();
+    eventName = capture ? eventName.substring(0, eventName.length - 7) : eventName;
+
+    if (isObject) {
+      iteratee(eventName, prop.handler, prop.options);
+    } else {
+      iteratee(eventName, prop, mergeDefaultEventOptions({
+        capture: capture
+      }));
+    }
+  });
+}
+
+function withOptions(handler, options) {
+   true ? warning(options, 'react-event-listener: should be specified options in withOptions.') : undefined;
+  return {
+    handler: handler,
+    options: mergeDefaultEventOptions(options)
+  };
+}
+
+var EventListener =
+/*#__PURE__*/
+function (_React$PureComponent) {
+  _inherits(EventListener, _React$PureComponent);
+
+  function EventListener() {
+    _classCallCheck(this, EventListener);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(EventListener).apply(this, arguments));
+  }
+
+  _createClass(EventListener, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.applyListeners(on);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      this.applyListeners(off, prevProps);
+      this.applyListeners(on);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.applyListeners(off);
+    }
+  }, {
+    key: "applyListeners",
+    value: function applyListeners(onOrOff) {
+      var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.props;
+      var target = props.target;
+
+      if (target) {
+        var element = target;
+
+        if (typeof target === 'string') {
+          element = window[target];
+        }
+
+        forEachListener(props, onOrOff.bind(null, element));
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return this.props.children || null;
+    }
+  }]);
+
+  return EventListener;
+}(React.PureComponent);
+
+EventListener.propTypes =  true ? {
+  /**
+   * You can provide a single child too.
+   */
+  children: PropTypes.node,
+
+  /**
+   * The DOM target to listen to.
+   */
+  target: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired
+} : undefined;
+
+exports.withOptions = withOptions;
+exports.default = EventListener;
+
+
+/***/ }),
+
 /***/ "./node_modules/react-is/cjs/react-is.development.js":
 /*!***********************************************************!*\
   !*** ./node_modules/react-is/cjs/react-is.development.js ***!
@@ -83962,7 +85524,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -90629,6 +92191,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_LoginPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/LoginPage */ "./resources/js/components/pages/LoginPage.js");
 /* harmony import */ var _pages_RegisterPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/RegisterPage */ "./resources/js/components/pages/RegisterPage.js");
 /* harmony import */ var _pages_HomePage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/HomePage */ "./resources/js/components/pages/HomePage.js");
+/* harmony import */ var _pages_ProfilePage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/ProfilePage */ "./resources/js/components/pages/ProfilePage.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -90646,6 +92209,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -90686,6 +92250,10 @@ function (_Component) {
         exact: true,
         path: "/home",
         component: _pages_HomePage__WEBPACK_IMPORTED_MODULE_7__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
+        path: "/profile",
+        component: _pages_ProfilePage__WEBPACK_IMPORTED_MODULE_8__["default"]
       })));
     }
   }]);
@@ -91010,6 +92578,86 @@ CommentList.propTypes = {
   classes: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["withStyles"])(styles)(CommentList));
+
+/***/ }),
+
+/***/ "./resources/js/components/CoverPhoto.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/CoverPhoto.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_CardMedia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/CardMedia */ "./node_modules/@material-ui/core/esm/CardMedia/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var styles = function styles(themes) {
+  return {
+    media: {
+      height: 250
+    }
+  };
+};
+
+var CoverPhoto =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(CoverPhoto, _Component);
+
+  function CoverPhoto(props) {
+    _classCallCheck(this, CoverPhoto);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(CoverPhoto).call(this, props));
+  }
+
+  _createClass(CoverPhoto, [{
+    key: "render",
+    value: function render() {
+      var classes = this.props.classes;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_CardMedia__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        className: classes.media,
+        image: this.props.src,
+        title: "Cover"
+      });
+    }
+  }]);
+
+  return CoverPhoto;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+CoverPhoto.propTypes = {
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired,
+  src: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["withStyles"])(styles)(CoverPhoto));
 
 /***/ }),
 
@@ -92812,6 +94460,216 @@ function LoginPage() {
     to: "/register"
   }, "New to the community? Register here."))))));
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/ProfilePage.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/pages/ProfilePage.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Avatar */ "./node_modules/@material-ui/core/esm/Avatar/index.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
+/* harmony import */ var _material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/CardContent */ "./node_modules/@material-ui/core/esm/CardContent/index.js");
+/* harmony import */ var _material_ui_core_CardMedia__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/CardMedia */ "./node_modules/@material-ui/core/esm/CardMedia/index.js");
+/* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Container */ "./node_modules/@material-ui/core/esm/Container/index.js");
+/* harmony import */ var _material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Divider */ "./node_modules/@material-ui/core/esm/Divider/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js");
+/* harmony import */ var _material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Tab */ "./node_modules/@material-ui/core/esm/Tab/index.js");
+/* harmony import */ var _material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/Tabs */ "./node_modules/@material-ui/core/esm/Tabs/index.js");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
+/* harmony import */ var _material_ui_icons_RssFeed__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/icons/RssFeed */ "./node_modules/@material-ui/icons/RssFeed.js");
+/* harmony import */ var _material_ui_icons_RssFeed__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_RssFeed__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _layouts_Header__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../layouts/Header */ "./resources/js/components/layouts/Header.js");
+/* harmony import */ var _CoverPhoto__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../CoverPhoto */ "./resources/js/components/CoverPhoto.js");
+/* harmony import */ var _NewsFeed__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../NewsFeed */ "./resources/js/components/NewsFeed.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    avatar: {
+      backgroundColor: theme.palette.grey[500],
+      width: 128,
+      height: 128,
+      position: 'relative',
+      marginTop: -64
+    },
+    bio: {
+      padding: theme.spacing(2)
+    },
+    container: {
+      marginBottom: theme.spacing(5)
+    },
+    followIcon: {
+      marginRight: theme.spacing(1)
+    },
+    paper: {
+      marginBottom: theme.spacing(3)
+    }
+  };
+};
+
+var ProfilePage =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ProfilePage, _Component);
+
+  function ProfilePage(props) {
+    var _this;
+
+    _classCallCheck(this, ProfilePage);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ProfilePage).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "changeTab", function (event, newValue) {
+      _this.setState(function (prevState) {
+        return {
+          currentTab: newValue
+        };
+      });
+    });
+
+    _this.state = {
+      currentTab: 'games'
+    };
+    return _this;
+  }
+
+  _createClass(ProfilePage, [{
+    key: "render",
+    value: function render() {
+      var classes = this.props.classes;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Header__WEBPACK_IMPORTED_MODULE_16__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        maxWidth: "md",
+        className: classes.container
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_11__["default"], {
+        className: classes.paper
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CoverPhoto__WEBPACK_IMPORTED_MODULE_17__["default"], {
+        src: "/img/Stardew Valley Cover.jpg"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        container: true,
+        justify: "center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        item: true
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        "aria-label": "Indiemesh",
+        className: classes.avatar
+      }, "IM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        container: true,
+        direction: "column",
+        justify: "center",
+        spacing: 1,
+        className: classes.bio
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        item: true,
+        container: true,
+        justify: "center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        item: true,
+        container: true,
+        direction: "column"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        item: true,
+        container: true,
+        justify: "center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_14__["default"], {
+        variant: "h5"
+      }, "Indiemesh")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        item: true,
+        container: true,
+        justify: "center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_14__["default"], {
+        color: "textSecondary",
+        variant: "caption",
+        gutterBottom: true
+      }, "Game Developer")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        item: true,
+        container: true,
+        justify: "center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        color: "primary",
+        size: "small",
+        variant: "contained"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_RssFeed__WEBPACK_IMPORTED_MODULE_15___default.a, {
+        className: classes.followIcon
+      }), "Follow"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_13__["default"], {
+        value: this.state.currentTab,
+        onChange: this.changeTab,
+        indicatorColor: "primary",
+        textColor: "primary",
+        centered: true
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_12__["default"], {
+        value: "games",
+        label: "Games"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_12__["default"], {
+        value: "posts",
+        label: "Posts"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_12__["default"], {
+        value: "assets",
+        label: "Assets"
+      }))), this.state.currentTab == 'games' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        container: true,
+        justify: "center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NewsFeed__WEBPACK_IMPORTED_MODULE_18__["default"], null))));
+    }
+  }]);
+
+  return ProfilePage;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+ProfilePage.propTypes = {
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_10__["withStyles"])(styles)(ProfilePage));
 
 /***/ }),
 
