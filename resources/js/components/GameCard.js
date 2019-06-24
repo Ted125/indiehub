@@ -8,14 +8,14 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     card: {
         maxWidth: 345,
     },
     media: {
         height: 140,
     },
-});
+}));
 
 export default function GameCard() {
     const classes = useStyles();

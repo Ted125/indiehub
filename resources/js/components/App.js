@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import HomePage from './pages/HomePage';
 
 export default class App extends Component {
     constructor(props){
@@ -18,6 +19,7 @@ export default class App extends Component {
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/login" component={LoginPage} />
                     <Route exact path="/register" component={RegisterPage} />
+                    <Route exact path="/home" component={HomePage} />
                 </div>
             </BrowserRouter>
         );
