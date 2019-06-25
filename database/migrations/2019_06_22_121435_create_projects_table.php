@@ -18,7 +18,8 @@ class CreateProjectsTable extends Migration
             $table->string('title');
             $table->string('tagline');
             $table->string('description');
-            $table->string('file_path');
+            $table->string('file_url');
+            $table->string('cover_photo_url');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('entity_id')->references('id')->on('entities');

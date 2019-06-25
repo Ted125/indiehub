@@ -17,11 +17,15 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->date('birthdate');
+            $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->date('birthdate');
+            $table->string('profile_photo_url')->nullable();
+            $table->string('cover_photo_url')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->string('auth_token');
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProjectAssetsTable extends Migration
+class CreateProjectPhotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateProjectAssetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_assets', function (Blueprint $table) {
+        Schema::create('project_photos', function (Blueprint $table) {
             $table->integer('project_id')->unsigned();
-            $table->integer('asset_id')->unsigned();
+            $table->integer('photo_id')->unsigned();
             $table->timestamps();
             $table->foreign('project_id')->references('entity_id')->on('projects');
-            $table->foreign('asset_id')->references('id')->on('assets');
-            $table->primary(['project_id', 'asset_id']);
+            $table->foreign('photo_id')->references('id')->on('photos');
+            $table->primary(['project_id', 'photo_id']);
         });
     }
 
@@ -30,6 +30,6 @@ class CreateProjectAssetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_assets');
+        Schema::dropIfExists('project_photos');
     }
 }

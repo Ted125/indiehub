@@ -16,7 +16,7 @@ class CreateEntityCommentsTable extends Migration
         Schema::create('entity_comments', function (Blueprint $table) {
             $table->integer('entity_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->text('comment');
+            $table->string('comment');
             $table->softDeletes();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');

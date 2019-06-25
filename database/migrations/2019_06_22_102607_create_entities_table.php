@@ -17,9 +17,11 @@ class CreateEntitiesTable extends Migration
             $table->increments('id');
             $table->integer('like_count')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->integer('category_id')->unsigned();
+            $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamps();
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
