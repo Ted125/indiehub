@@ -54,12 +54,12 @@ class GameDetailsPage extends Component {
                             <Grid item container justify="flex-start">
                                 <Grid item container direction="column">
                                     <Grid item container justify="space-between">
-                                        <Grid item xs={6}>
+                                        <Grid item xs={12} md={6}>
                                             <Typography variant="h4" gutterBottom align="left">
                                                 Fez
                                             </Typography>
                                         </Grid>
-                                        <Grid item xs={2}>
+                                        <Grid item xs={12} md={2}>
                                             <Button
                                                 color="primary"
                                                 fullWidth
@@ -71,12 +71,12 @@ class GameDetailsPage extends Component {
                                         </Grid>
                                     </Grid>
                                     <Grid item container justify="space-between">
-                                        <Grid item container xs={3} justify="flex-start">
+                                        <Grid item container xs={12} md={3} justify="flex-start">
                                             <Typography color="textSecondary" variant="caption">
                                                 Last updated on January 1, 2019
                                             </Typography>
                                         </Grid>
-                                        <Grid item container xs={6} justify="flex-end">
+                                        <Grid item container xs={12} md={6} justify="flex-end">
                                             <Grid container justify="space-between">
                                                 <Grid item xs={11}>
                                                     <Link href="#">

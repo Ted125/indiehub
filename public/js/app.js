@@ -17353,7 +17353,7 @@ var defaultTheme = Object(_createMuiTheme__WEBPACK_IMPORTED_MODULE_0__["default"
 /*!************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/index.js ***!
   \************************************************************/
-/*! exports provided: hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, easing, duration, formatMs, isString, isNumber, useTheme, withStyles, withTheme */
+/*! exports provided: createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, useTheme, withStyles, withTheme, hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, easing, duration, formatMs, isString, isNumber */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -87485,7 +87485,7 @@ if(false) {}
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -96804,14 +96804,16 @@ function (_Component) {
         justify: "space-between"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
         item: true,
-        xs: 6
+        xs: 12,
+        md: 6
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_11__["default"], {
         variant: "h4",
         gutterBottom: true,
         align: "left"
       }, "Fez")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
         item: true,
-        xs: 2
+        xs: 12,
+        md: 2
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         color: "primary",
         fullWidth: true,
@@ -96824,7 +96826,8 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
         item: true,
         container: true,
-        xs: 3,
+        xs: 12,
+        md: 3,
         justify: "flex-start"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_11__["default"], {
         color: "textSecondary",
@@ -96832,7 +96835,8 @@ function (_Component) {
       }, "Last updated on January 1, 2019")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
         item: true,
         container: true,
-        xs: 6,
+        xs: 12,
+        md: 6,
         justify: "flex-end"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
         container: true,
