@@ -17353,7 +17353,7 @@ var defaultTheme = Object(_createMuiTheme__WEBPACK_IMPORTED_MODULE_0__["default"
 /*!************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/index.js ***!
   \************************************************************/
-/*! exports provided: createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, useTheme, withStyles, withTheme, hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, easing, duration, formatMs, isString, isNumber */
+/*! exports provided: hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, easing, duration, formatMs, isString, isNumber, useTheme, withStyles, withTheme */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -87485,7 +87485,7 @@ if(false) {}
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -96703,9 +96703,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_responsive_carousel__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(react_responsive_carousel__WEBPACK_IMPORTED_MODULE_16__);
 /* harmony import */ var _layouts_Header__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../layouts/Header */ "./resources/js/components/layouts/Header.js");
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../layouts/Footer */ "./resources/js/components/layouts/Footer.js");
-/* harmony import */ var _forms_CommentForm__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../forms/CommentForm */ "./resources/js/components/forms/CommentForm.js");
-/* harmony import */ var _CommentList__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../CommentList */ "./resources/js/components/CommentList.js");
-/* harmony import */ var _CoverPhoto__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../CoverPhoto */ "./resources/js/components/CoverPhoto.js");
+/* harmony import */ var _Category__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../Category */ "./resources/js/components/Category.js");
+/* harmony import */ var _forms_CommentForm__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../forms/CommentForm */ "./resources/js/components/forms/CommentForm.js");
+/* harmony import */ var _CommentList__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../CommentList */ "./resources/js/components/CommentList.js");
+/* harmony import */ var _CoverPhoto__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../CoverPhoto */ "./resources/js/components/CoverPhoto.js");
+/* harmony import */ var _TagList__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../TagList */ "./resources/js/components/TagList.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -96723,6 +96725,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
 
@@ -96784,7 +96788,7 @@ function (_Component) {
         className: classes.container
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_9__["default"], {
         className: classes.paper
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CoverPhoto__WEBPACK_IMPORTED_MODULE_21__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CoverPhoto__WEBPACK_IMPORTED_MODULE_22__["default"], {
         src: "/img/Fez.jpg"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
         container: true,
@@ -96856,7 +96860,15 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_2__["default"], {
         "aria-label": "Indiemesh",
         className: classes.avatar
-      }, "IM")))))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      }, "IM")))))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        container: true,
+        justify: "center",
+        className: classes.details
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        item: true
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Category__WEBPACK_IMPORTED_MODULE_19__["default"], {
+        label: "2D Game"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_11__["default"], {
         color: "textSecondary",
         variant: "subtitle1",
         className: classes.details,
@@ -96873,7 +96885,7 @@ function (_Component) {
         className: classes.details,
         align: "justify",
         paragraph: true
-      }, "Fez is a two-dimensional (2D) puzzle platform game set in a three-dimensional (3D) world. The player-character Gomez lives peacefully on a 2D plane until he receives a red fez and witnesses the breakup of a giant, golden hexahedron that tears the fabric of spacetime and reveals a third dimension. After the game appears to glitch, reset, and reboot, the player can rotate between four 2D views of the 3D world, as four sides around a cube-like space. This rotation mechanic reveals new paths through the levels by connecting otherwise inaccessible platforms, and is the basis of Fez's puzzles. For example, floating platforms become a solid road, discontinuous ladders become whole, and platforms that move along a track stay on course. The object of the game is to collect cubes and cube fragments, which accrete to restore order to the universe. In search of these cubes, Gomez traverses the game environment by jumping between ledges. Other platforming elements change with the level themes, including crates that activate switches, bombs that reveal passages, and pistons that launch Gomez airborne."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, "Fez is a two-dimensional (2D) puzzle platform game set in a three-dimensional (3D) world. The player-character Gomez lives peacefully on a 2D plane until he receives a red fez and witnesses the breakup of a giant, golden hexahedron that tears the fabric of spacetime and reveals a third dimension. After the game appears to glitch, reset, and reboot, the player can rotate between four 2D views of the 3D world, as four sides around a cube-like space. This rotation mechanic reveals new paths through the levels by connecting otherwise inaccessible platforms, and is the basis of Fez's puzzles. For example, floating platforms become a solid road, discontinuous ladders become whole, and platforms that move along a track stay on course. The object of the game is to collect cubes and cube fragments, which accrete to restore order to the universe. In search of these cubes, Gomez traverses the game environment by jumping between ledges. Other platforming elements change with the level themes, including crates that activate switches, bombs that reveal passages, and pistons that launch Gomez airborne."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TagList__WEBPACK_IMPORTED_MODULE_23__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
         container: true,
         justify: "flex-start",
         className: classes.details
@@ -96907,9 +96919,9 @@ function (_Component) {
         className: classes.details
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
         item: true
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_CommentForm__WEBPACK_IMPORTED_MODULE_19__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_CommentForm__WEBPACK_IMPORTED_MODULE_20__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
         item: true
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CommentList__WEBPACK_IMPORTED_MODULE_20__["default"], null))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Footer__WEBPACK_IMPORTED_MODULE_18__["default"], null));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CommentList__WEBPACK_IMPORTED_MODULE_21__["default"], null))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Footer__WEBPACK_IMPORTED_MODULE_18__["default"], null));
     }
   }]);
 

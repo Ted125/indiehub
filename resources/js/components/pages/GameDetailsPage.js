@@ -17,9 +17,11 @@ import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 import { Carousel } from 'react-responsive-carousel';
 import Header from '../layouts/Header';
 import Footer from '../layouts/Footer';
+import Category from '../Category';
 import CommentForm from '../forms/CommentForm';
 import CommentList from '../CommentList';
 import CoverPhoto from '../CoverPhoto';
+import TagList from '../TagList';
 
 const styles = theme => ({
     avatar: {
@@ -96,6 +98,11 @@ class GameDetailsPage extends Component {
                                 </Grid>
                             </Grid>
                         </Grid>
+                        <Grid container justify="center" className={classes.details}>
+                            <Grid item>
+                                <Category label="2D Game" />
+                            </Grid>
+                        </Grid>
                         <Divider />
                         <Typography color="textSecondary" variant="subtitle1" className={classes.details} align="center">
                             Fez is a two-dimensional (2D) puzzle platform game set in a three-dimensional (3D) world.
@@ -114,6 +121,7 @@ class GameDetailsPage extends Component {
                         <Typography color="textSecondary" variant="body1" className={classes.details} align="justify" paragraph>
                             Fez is a two-dimensional (2D) puzzle platform game set in a three-dimensional (3D) world. The player-character Gomez lives peacefully on a 2D plane until he receives a red fez and witnesses the breakup of a giant, golden hexahedron that tears the fabric of spacetime and reveals a third dimension. After the game appears to glitch, reset, and reboot, the player can rotate between four 2D views of the 3D world, as four sides around a cube-like space. This rotation mechanic reveals new paths through the levels by connecting otherwise inaccessible platforms, and is the basis of Fez's puzzles. For example, floating platforms become a solid road, discontinuous ladders become whole, and platforms that move along a track stay on course. The object of the game is to collect cubes and cube fragments, which accrete to restore order to the universe. In search of these cubes, Gomez traverses the game environment by jumping between ledges. Other platforming elements change with the level themes, including crates that activate switches, bombs that reveal passages, and pistons that launch Gomez airborne.
                         </Typography>
+                        <TagList />
                         <Grid container justify="flex-start" className={classes.details}>
                             <Grid item xs={1}>
                                 <IconButton size="small" color="default" aria-label="Like">
