@@ -15,6 +15,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import RssFeedIcon from '@material-ui/icons/RssFeed';
 import Header from '../layouts/Header';
+import Footer from '../layouts/Footer';
 import CoverPhoto from '../CoverPhoto';
 import NewsFeed from '../NewsFeed';
 
@@ -99,9 +100,9 @@ class ProfilePage extends Component{
                             textColor="primary"
                             centered
                         >
-                            <Tab value='games' label="Games" />
-                            <Tab value='posts' label="Posts" />
-                            <Tab value='assets' label="Assets" />
+                            <Tab value='games' label="Games (3)" />
+                            <Tab value='followers' label="Followers (100)" />
+                            <Tab value='following' label="Following (10)" />
                         </Tabs>
                     </Paper>
 
@@ -111,6 +112,7 @@ class ProfilePage extends Component{
                         </Grid>
                     ) }
                 </Container>
+                <Footer />
             </React.Fragment>
         );
     }

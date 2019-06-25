@@ -10,9 +10,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Collapse from '@material-ui/core/Collapse';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
 import IconButton from '@material-ui/core/IconButton';
-import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
 import ModeCommentOutlinedIcon from '@material-ui/icons/ModeCommentOutlined';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
@@ -70,20 +71,22 @@ class GamePost extends Component {
                     }
                     subheader="January 1, 2019"
                 />
-                <CardActionArea>
-                    <CardMedia
-                        className={classes.media}
-                        image="/img/Fez.jpg"
-                        title="Fez"
-                    />
-                    <CardContent>
-                        <Typography gutterBottom component="h2" variant="h5">
-                            Fez
-                        </Typography>
-                        <Typography>
-                            Fez is a two-dimensional (2D) puzzle platform game set in a three-dimensional (3D) world.
-                        </Typography>
-                    </CardContent>
+                <CardActionArea onClick={this.openModal}>
+                    <Link href="/games" color="inherit" underline="none">
+                        <CardMedia
+                            className={classes.media}
+                            image="/img/Fez.jpg"
+                            title="Fez"
+                        />
+                        <CardContent>
+                            <Typography gutterBottom component="h2" variant="h5">
+                                Fez
+                            </Typography>
+                            <Typography>
+                                Fez is a two-dimensional (2D) puzzle platform game set in a three-dimensional (3D) world.
+                            </Typography>
+                        </CardContent>
+                    </Link>
                 </CardActionArea>
                 <TagList />
                 <CardActions>
