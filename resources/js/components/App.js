@@ -8,6 +8,7 @@ import RegisterPage from './pages/RegisterPage';
 import HomePage from './pages/HomePage';
 import ProfilePage from './pages/ProfilePage';
 import GameDetailsPage from './pages/GameDetailsPage';
+import GameUploadPage from './pages/GameUploadPage';
 
 export default class App extends Component {
     constructor(props){
@@ -24,6 +25,7 @@ export default class App extends Component {
                     <Route exact path="/home" component={HomePage} />
                     <Route exact path="/profile" component={ProfilePage} />
                     <Route exact path="/games" component={GameDetailsPage} />
+                    <Route exact path="/upload" component={GameUploadPage} />
                 </div>
             </BrowserRouter>
         );
