@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('cover_photo_url')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->string('auth_token');
+            $table->string('auth_token')->nullable();
             $table->timestamps();
         });
     }
