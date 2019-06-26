@@ -23,6 +23,11 @@ Route::prefix('/v1')->namespace('Api\v1')->middleware('jwt.auth', 'api-header')-
         Route::post('/follow/{id}', 'UserController@follow');
         Route::post('/unfollow/{id}', 'UserController@unfollow');
     });
+
+    Route::prefix('category')->group(function(){
+        Route::get('/all', 'CategoryController@list');
+        Route::get('/{id}', 'CategoryController@find');
+    });
 });
 
 Route::prefix('/v1')->namespace('Api\v1')->middleware('api-header')->group(function(){
