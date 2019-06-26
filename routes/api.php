@@ -28,6 +28,11 @@ Route::prefix('/v1')->namespace('Api\v1')->middleware('jwt.auth', 'api-header')-
         Route::get('/all', 'CategoryController@list');
         Route::get('/{id}', 'CategoryController@find');
     });
+
+    Route::prefix('tag')->group(function(){
+        Route::get('/all', 'TagController@list');
+        Route::get('/{id}', 'TagController@find');
+    });
 });
 
 Route::prefix('/v1')->namespace('Api\v1')->middleware('api-header')->group(function(){
