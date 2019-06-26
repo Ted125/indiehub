@@ -56,6 +56,8 @@ class UserController extends Controller
         if($user){
             return fractal()
                     ->item($user, new UserTransformer(), 'user')
+                    ->includeFollowers()
+                    ->includeFollowing()
                     ->respond();
         }else{
             return response()->json(null);

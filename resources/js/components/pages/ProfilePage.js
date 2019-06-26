@@ -18,6 +18,8 @@ import Header from '../layouts/Header';
 import Footer from '../layouts/Footer';
 import CoverPhoto from '../CoverPhoto';
 import NewsFeed from '../NewsFeed';
+import FollowerList from '../FollowerList';
+import FollowingList from '../FollowingList';
 import { apiEndpointResolver } from '../../helpers.js';
 
 const styles = theme => ({
@@ -48,7 +50,9 @@ class ProfilePage extends Component{
 
         this.state = {
             currentTab: 'games',
-            endpoint: apiEndpointResolver('/user'),
+            profileEndpoint: apiEndpointResolver('/user'),
+            followEndpoint: apiEndpointResolver('/user/follow'),
+            unfollowEndpoint: apiEndpointResolver('/user/unfollow'),
             user: null
         };
     }
@@ -63,10 +67,44 @@ class ProfilePage extends Component{
         if(this.props.user == null || this.state.user == null){
             return (
                 <React.Fragment />
-            )
+            );
         }
 
-        console.log(this.props);
+        var followState;
+
+        if(this.state.user.id == this.props.user.id){
+            followState = (
+                <React.Fragment />
+            );
+        }else if(this.state.user.followers.data.map(user => user.id).includes(this.props.user.id)){
+            followState = (
+                <Grid item container justify="center">
+                    <Button
+                        color="primary"
+                        size="small"
+                        variant="outlined"
+                        onClick={() => {this.unfollowUser(this.state.user.id)}}
+                    >
+                        <RssFeedIcon className={classes.followIcon} />
+                        Unfollow
+                    </Button>
+                </Grid>
+            );
+        }else{
+            followState = (
+                <Grid item container justify="center">
+                    <Button
+                        color="primary"
+                        size="small"
+                        variant="contained"
+                        onClick={() => {this.followUser(this.state.user.id)}}
+                    >
+                        <RssFeedIcon className={classes.followIcon} />
+                        Follow
+                    </Button>
+                </Grid>
+            );
+        }
 
         return (
             <React.Fragment>
@@ -91,21 +129,12 @@ class ProfilePage extends Component{
                                     </Grid>
                                     <Grid item container justify="center">
                                         <Typography color="textSecondary" variant="caption" gutterBottom>
-                                            Game Developer
+                                            {this.state.user.username}
                                         </Typography>
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item container justify="center">
-                                <Button
-                                    color="primary"
-                                    size="small"
-                                    variant="contained"
-                                >
-                                    <RssFeedIcon className={classes.followIcon} />
-                                    Follow
-                                </Button>
-                            </Grid>
+                            {followState}
                         </Grid>
                         <Divider />
                         <Tabs
@@ -116,14 +145,23 @@ class ProfilePage extends Component{
                             centered
                         >
                             <Tab value='games' label="Games (3)" />
-                            <Tab value='followers' label="Followers (100)" />
-                            <Tab value='following' label="Following (10)" />
+                            <Tab value='followers' label={ 'Followers (' + this.state.user.followers.data.length + ')' } />
+                            <Tab value='following' label={ 'Following (' + this.state.user.following.data.length + ')' } />
                         </Tabs>
                     </Paper>
-
                     { this.state.currentTab == 'games' && (
                         <Grid container justify="center">
                             <NewsFeed />
+                        </Grid>
+                    ) }
+                    { this.state.currentTab == 'followers' && (
+                        <Grid container justify="center">
+                            <FollowerList auth={this.props.user} user={this.state.user} />
+                        </Grid>
+                    ) }
+                    { this.state.currentTab == 'following' && (
+                        <Grid container justify="center">
+                            <FollowingList auth={this.props.user} user={this.state.user} />
                         </Grid>
                     ) }
                 </Container>
@@ -139,10 +177,48 @@ class ProfilePage extends Component{
     }
 
     loadUser = (id, token) => {
-        var endpoint = this.state.endpoint + '/' + id + '?token=' + token;
-        console.log(endpoint);
+        var endpoint = this.state.profileEndpoint + '/' + id + '?token=' + token;
+
         axios
             .get(endpoint)
+            .then(response => {
+                let user = response.data.data;
+
+                if(user !== null && typeof user !== 'undefined'){
+                    this.setState({
+                        user: user
+                    });
+                }
+            });
+    }
+
+    followUser = (id) => {
+        var endpoint = this.state.followEndpoint + '/' + id;
+
+        var formData = new FormData();
+        formData.append('token', this.props.user.authToken);
+
+        axios
+            .post(endpoint, formData)
+            .then(response => {
+                let user = response.data.data;
+
+                if(user !== null && typeof user !== 'undefined'){
+                    this.setState({
+                        user: user
+                    });
+                }
+            });
+    }
+
+    unfollowUser = (id) => {
+        var endpoint = this.state.unfollowEndpoint + '/' + id;
+
+        var formData = new FormData();
+        formData.append('token', this.props.user.authToken);
+
+        axios
+            .post(endpoint, formData)
             .then(response => {
                 let user = response.data.data;
 
