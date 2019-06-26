@@ -6,6 +6,9 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import Link from '@material-ui/core/Link';
@@ -69,6 +72,11 @@ const styles = theme => ({
 class Header extends Component {
     constructor(props){
         super(props);
+
+        this.state = {
+            accountMenuOpen: false,
+            anchorElement: null
+        }
     }
 
     render(){
@@ -78,9 +86,55 @@ class Header extends Component {
 
         if(this.props.user){
             navButtons = (
-                <Link color="inherit" variant="body2" className={classes.menuButton} href="/logout">
-                    Logout
-                </Link>
+                <React.Fragment>
+                    <Link color="inherit" variant="body2" className={classes.menuButton} href="/upload">
+                        <Button
+                            color="secondary"
+                            size="small"
+                            variant="contained"
+                        >
+                            Upload
+                        </Button>
+                    </Link>
+                    <Link color="inherit" variant="body2" className={classes.menuButton} href="/home">
+                        Feed
+                    </Link>
+                    <IconButton
+                        aria-label="My Account"
+                        aria-controls="menu-account"
+                        aria-haspopup="true"
+                        onClick={this.openAccountMenu}
+                        color="inherit"
+                    >
+                        <AccountCircle />
+                    </IconButton>
+                    <Menu
+                        id="menu-account"
+                        anchorEl={this.state.anchorElement}
+                        anchorOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right'
+                        }}
+                        keepMounted
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right'
+                        }}
+                        open={this.state.accountMenuOpen}
+                        onClose={this.closeAccountMenu}
+                    >
+                        <MenuItem onClick={this.closeAccountMenu}>
+                            <Link color="inherit" variant="body2" href={'/profile/' + this.props.user.id}>
+                                Profile
+                            </Link>
+                        </MenuItem>
+                        <MenuItem onClick={this.closeAccountMenu}>
+                            <Link color="inherit" variant="body2" className={classes.menuButton} href="/logout">
+                                Logout
+                            </Link>
+                        </MenuItem>
+                    </Menu>
+                </React.Fragment>
             );
         }else{
             navButtons = (
@@ -130,6 +184,20 @@ class Header extends Component {
                 </AppBar>
             </div>
         );
+    }
+
+    openAccountMenu = event => {
+        this.setState({
+            accountMenuOpen: true,
+            anchorElement: event.currentTarget
+        });
+    }
+
+    closeAccountMenu = () => {
+        this.setState({
+            accountMenuOpen: false,
+            anchorElement: null
+        });
     }
 }
 

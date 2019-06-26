@@ -18,6 +18,7 @@ import Header from '../layouts/Header';
 import Footer from '../layouts/Footer';
 import CoverPhoto from '../CoverPhoto';
 import NewsFeed from '../NewsFeed';
+import { apiEndpointResolver } from '../../helpers.js';
 
 const styles = theme => ({
     avatar: {
@@ -46,23 +47,37 @@ class ProfilePage extends Component{
         super(props);
 
         this.state = {
-            currentTab: 'games'
+            currentTab: 'games',
+            endpoint: apiEndpointResolver('/user'),
+            user: null
         };
     }
 
     render() {
         const { classes } = this.props;
 
+        if(this.props.user != null && this.state.user == null){
+            this.loadUser(this.props.match.params.id, this.props.user.authToken);
+        }
+
+        if(this.props.user == null || this.state.user == null){
+            return (
+                <React.Fragment />
+            )
+        }
+
+        console.log(this.props);
+
         return (
             <React.Fragment>
-                <Header />
+                <Header user={this.props.user} />
                 <Container maxWidth="md" className={classes.container}>
                     <Paper className={classes.paper}>
                         <CoverPhoto src="/img/Stardew Valley Cover.jpg" />
                         <Grid container justify="center">
                             <Grid item>
                                 <Avatar aria-label="Indiemesh" className={classes.avatar}>
-                                    IM
+                                    {this.state.user.firstName.charAt(0) + this.state.user.lastName.charAt(0)}
                                 </Avatar>
                             </Grid>
                         </Grid>
@@ -71,7 +86,7 @@ class ProfilePage extends Component{
                                 <Grid item container direction="column">
                                     <Grid item container justify="center">
                                         <Typography variant="h5">
-                                            Indiemesh
+                                            {this.state.user.firstName + ' ' + this.state.user.lastName}
                                         </Typography>
                                     </Grid>
                                     <Grid item container justify="center">
@@ -122,10 +137,27 @@ class ProfilePage extends Component{
             currentTab: newValue
         }));
     }
+
+    loadUser = (id, token) => {
+        var endpoint = this.state.endpoint + '/' + id + '?token=' + token;
+        console.log(endpoint);
+        axios
+            .get(endpoint)
+            .then(response => {
+                let user = response.data.data;
+
+                if(user !== null && typeof user !== 'undefined'){
+                    this.setState({
+                        user: user
+                    });
+                }
+            });
+    }
 }
 
 ProfilePage.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    user: PropTypes.object
 }
 
 export default withStyles(styles)(ProfilePage);

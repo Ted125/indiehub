@@ -29,7 +29,7 @@ class GameUploadPage extends Component {
 
         return(
             <React.Fragment>
-                <Header />
+                <Header user={this.props.user} />
                 <Container maxWidth="md" className={classes.container}>
                     <Paper className={classes.paper}>
                         <Typography variant="h5" paragraph>
@@ -45,7 +45,8 @@ class GameUploadPage extends Component {
 }
 
 GameUploadPage.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    user: PropTypes.object
 }
 
 export default withStyles(styles)(GameUploadPage);

@@ -48,4 +48,17 @@ class UserController extends Controller
             return response()->json(null);
         }
     }
+
+    public function findUser(Request $request)
+    {
+        $user = $this->userService->findUser($request->id);
+
+        if($user){
+            return fractal()
+                    ->item($user, new UserTransformer(), 'user')
+                    ->respond();
+        }else{
+            return response()->json(null);
+        }
+    }
 }

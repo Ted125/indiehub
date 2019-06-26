@@ -6,6 +6,11 @@ use Indiemesh\Models\User;
 
 class UserRepository implements Repository
 {
+    public function findUser($id)
+    {
+        return User::find($id);
+    }
+
     public function findUserViaEmail($email)
     {
         return User::where('email', '=', $email)

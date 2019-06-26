@@ -51,6 +51,11 @@ class UserService implements Service
         return $user;
     }
 
+    public function findUser($id)
+    {
+        return $this->userRepository->findUser($id);
+    }
+
     private function getToken($email, $password)
     {
         $token = JWTAuth::attempt([

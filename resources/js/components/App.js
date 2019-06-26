@@ -10,6 +10,7 @@ import ProfilePage from './pages/ProfilePage';
 import GameDetailsPage from './pages/GameDetailsPage';
 import GameUploadPage from './pages/GameUploadPage';
 import LogoutPage from './pages/LogoutPage';
+import Error404Page from './pages/Error404Page';
 import { PrivateRoute } from '../helpers';
 
 export default class App extends Component {
@@ -26,7 +27,11 @@ export default class App extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/" component={LandingPage} user={this.state.user} />
+                    <Route exact path="/" render={props => (
+                        <LandingPage
+                            user={this.state.user}
+                        />
+                    )} />
                     <Route exact path="/login" render={props => (
                         <LoginPage
                             user={this.state.user}
@@ -40,10 +45,11 @@ export default class App extends Component {
                         />
                     )} />
                     <PrivateRoute exact path="/home" component={HomePage} user={this.state.user} />
-                    <PrivateRoute exact path="/profile" component={ProfilePage} user={this.state.user} />
                     <PrivateRoute exact path="/games" component={GameDetailsPage} user={this.state.user} />
                     <PrivateRoute exact path="/upload" component={GameUploadPage} user={this.state.user} />
                     <PrivateRoute exact path="/logout" component={LogoutPage} user={this.state.user} />
+                    <PrivateRoute path="/profile/:id" component={ProfilePage} user={this.state.user} />
+                    <Route component={Error404Page} />
                 </Switch>
             </BrowserRouter>
         );
