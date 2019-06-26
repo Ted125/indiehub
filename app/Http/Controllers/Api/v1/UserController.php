@@ -49,13 +49,43 @@ class UserController extends Controller
         }
     }
 
-    public function findUser(Request $request)
+    public function find(Request $request)
     {
         $user = $this->userService->findUser($request->id);
 
         if($user){
             return fractal()
                     ->item($user, new UserTransformer(), 'user')
+                    ->respond();
+        }else{
+            return response()->json(null);
+        }
+    }
+
+    public function follow(Request $request)
+    {
+        $user = $this->userService->followUser($request->id);
+
+        if($user){
+            return fractal()
+                    ->item($user, new UserTransformer(), 'user')
+                    ->includeFollowers()
+                    ->includeFollowing()
+                    ->respond();
+        }else{
+            return response()->json(null);
+        }
+    }
+
+    public function unfollow(Request $request)
+    {
+        $user = $this->userService->unfollowUser($request->id);
+
+        if($user){
+            return fractal()
+                    ->item($user, new UserTransformer(), 'user')
+                    ->includeFollowers()
+                    ->includeFollowing()
                     ->respond();
         }else{
             return response()->json(null);

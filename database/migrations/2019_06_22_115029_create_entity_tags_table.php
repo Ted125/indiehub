@@ -14,12 +14,12 @@ class CreateEntityTagsTable extends Migration
     public function up()
     {
         Schema::create('entity_tags', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('entity_id')->unsigned();
             $table->integer('tag_id')->unsigned();
             $table->timestamps();
             $table->foreign('entity_id')->references('id')->on('entities');
             $table->foreign('tag_id')->references('id')->on('tags');
-            $table->primary(['entity_id', 'tag_id']);
         });
     }
 

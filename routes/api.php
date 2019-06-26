@@ -19,7 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::prefix('/v1')->namespace('Api\v1')->middleware('jwt.auth', 'api-header')->group(function(){
     Route::prefix('user')->group(function(){
-        Route::get('/{id}', 'UserController@findUser');
+        Route::get('/{id}', 'UserController@find');
+        Route::post('/follow/{id}', 'UserController@follow');
+        Route::post('/unfollow/{id}', 'UserController@unfollow');
     });
 });
 

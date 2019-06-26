@@ -56,6 +56,30 @@ class UserService implements Service
         return $this->userRepository->findUser($id);
     }
 
+    public function followUser($userId)
+    {
+        $follower = JWTAuth::user();
+        $userToFollow = $this->findUser($userId);
+
+        if(!$follower || !$userToFollow || $follower->id == $userToFollow->id){
+            return null;
+        }
+
+        return $this->userRepository->followUser($userToFollow, $follower);
+    }
+
+    public function unfollowUser($userId)
+    {
+        $follower = JWTAuth::user();
+        $userToUnfollow = $this->findUser($userId);
+
+        if(!$follower || !$userToUnfollow || $follower->id == $userToUnfollow->id){
+            return null;
+        }
+
+        return $this->userRepository->unfollowUser($userToUnfollow, $follower);
+    }
+
     private function getToken($email, $password)
     {
         $token = JWTAuth::attempt([

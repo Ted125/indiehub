@@ -7,6 +7,10 @@ use League\Fractal\TransformerAbstract;
 
 class UserTransformer extends TransformerAbstract
 {
+    protected $availableIncludes = [
+        'followers', 'following'
+    ];
+
     /**
      * A Fractal transformer.
      *
@@ -28,5 +32,15 @@ class UserTransformer extends TransformerAbstract
             'createdAt' => $user->created_at,
             'updatedAt' => $user->updated_at
         ];
+    }
+
+    public function includeFollowers(User $user)
+    {
+        return $this->collection($user->followers, new UserTransformer(), 'user');
+    }
+
+    public function includeFollowing(User $user)
+    {
+        return $this->collection($user->following, new UserTransformer(), 'user');
     }
 }

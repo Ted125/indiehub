@@ -14,12 +14,12 @@ class CreateEntityLikesTable extends Migration
     public function up()
     {
         Schema::create('entity_likes', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('entity_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('entity_id')->references('id')->on('entities');
-            $table->primary(['user_id', 'entity_id']);
         });
     }
 

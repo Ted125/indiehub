@@ -3,6 +3,7 @@
 namespace Indiemesh\Repositories;
 
 use Indiemesh\Models\User;
+use Indiemesh\Models\UserFollower;
 
 class UserRepository implements Repository
 {
@@ -36,5 +37,39 @@ class UserRepository implements Repository
         }catch(\Exception $e){
             return null;
         }
+    }
+
+    public function followUser(User $user, User $follower)
+    {
+        $existingFollower = UserFollower::where([
+            ['followed_id', '=', $user->id],
+            ['follower_id', '=', $follower->id]
+        ])->first();
+
+        if(!$existingFollower){
+            $newFollower = new UserFollower();
+            $newFollower->followed_id = $user->id;
+            $newFollower->follower_id = $follower->id;
+
+            if($newFollower->save()){
+                return $user;
+            }
+        }
+
+        return null;
+    }
+
+    public function unfollowUser(User $user, User $follower)
+    {
+        $existingFollower = UserFollower::where([
+            ['followed_id', '=', $user->id],
+            ['follower_id', '=', $follower->id]
+        ])->first();
+
+        if($existingFollower && $existingFollower->delete()){
+            return $user;
+        }
+
+        return null;
     }
 }
