@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -8,6 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import {DropzoneArea} from 'material-ui-dropzone'
 import TagSelect from '../TagSelect';
+import { apiEndpointResolver } from '../../helpers.js';
 
 const styles = theme => ({
 
@@ -18,8 +20,15 @@ class GameUploadForm extends Component {
         super(props);
 
         this.state = {
-            valueScreenshots: [],
-            valueCoverPhoto: null
+            uploadEndpoint: apiEndpointResolver('/project/upload'),
+            photoUploadEndpoint: apiEndpointResolver('/photo/store'),
+            valueTitle: null,
+            valueTagline: null,
+            valueDescription: null,
+            valueDownloadLink: null,
+            valueTags: [],
+            valueCoverPhoto: null,
+            valueScreenshots: []
         }
     }
 
@@ -27,7 +36,7 @@ class GameUploadForm extends Component {
         const { classes } = this.props;
 
         return(
-            <form className={classes.form} noValidate>
+            <form className={classes.form} onSubmit={this.upload} noValidate>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
                         <TextField
@@ -37,6 +46,7 @@ class GameUploadForm extends Component {
                             fullWidth
                             id="title"
                             label="Title"
+                            onChange={this.setTitle}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -47,6 +57,7 @@ class GameUploadForm extends Component {
                             fullWidth
                             id="tagline"
                             label="Tagline"
+                            onChange={this.setTagline}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -58,6 +69,7 @@ class GameUploadForm extends Component {
                             id="description"
                             label="Description"
                             multiline
+                            onChange={this.setDescription}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -68,17 +80,18 @@ class GameUploadForm extends Component {
                             fullWidth
                             id="filePath"
                             label="Download Link"
+                            onChange={this.setDownloadLink}
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <TagSelect />
+                        <TagSelect auth={this.props.auth} handleChange={this.setTags} />
                     </Grid>
                     <Grid item xs={12}>
                         <DropzoneArea
                             onChange={this.setCoverPhoto}
                             dropzoneText="Cover Photo"
                             filesLimit={1}
-                            maxFileSize={5000000}
+                            maxFileSize={4000000}
                             acceptedFiles={['image/png', 'image/jpeg']}
                         />
                     </Grid>
@@ -86,8 +99,8 @@ class GameUploadForm extends Component {
                         <DropzoneArea
                             onChange={this.setScreenshots}
                             dropzoneText="Screenshots (Max 10)"
-                            filesLimit={10}
-                            maxFileSize={50000000}
+                            filesLimit={4}
+                            maxFileSize={16000000}
                             acceptedFiles={['image/png', 'image/jpeg']}
                         />
                     </Grid>
@@ -107,6 +120,36 @@ class GameUploadForm extends Component {
         );
     }
 
+    setTitle = (e) => {
+        this.setState({
+            valueTitle: e.target.value
+        });
+    }
+
+    setTagline = (e) => {
+        this.setState({
+            valueTagline: e.target.value
+        });
+    }
+
+    setDescription = (e) => {
+        this.setState({
+            valueDescription: e.target.value
+        });
+    }
+
+    setDownloadLink = (e) => {
+        this.setState({
+            valueDownloadLink: e.target.value
+        });
+    }
+
+    setTags = (value) => {
+        this.setState({
+            valueTags: value
+        });
+    }
+
     setCoverPhoto = (files) => {
         this.setState({
             valueCoverPhoto: files[0]
@@ -118,10 +161,54 @@ class GameUploadForm extends Component {
             valueScreenshots: files
         });
     }
+
+    upload = (e) => {
+        e.preventDefault();
+
+        var formData = new FormData();
+        formData.append('token', this.props.auth.authToken);
+        formData.append('photo', this.state.valueCoverPhoto);
+
+        axios
+            .post(this.state.photoUploadEndpoint, formData)
+            .then(response => {
+                var path = response.data.path
+
+                if(path != null && typeof path != 'undefined'){
+                    formData = new FormData();
+                    formData.append('token', this.props.auth.authToken);
+                    formData.append('categoryId', 1);
+                    formData.append('title', this.state.valueTitle);
+                    formData.append('tagline', this.state.valueTagline);
+                    formData.append('description', this.state.valueDescription);
+                    formData.append('fileUrl', this.state.valueDownloadLink);
+                    formData.append('coverPhotoUrl', this.state.valueCoverPhoto);
+
+                    this.state.valueTags.forEach((tag, index) => {
+                        formData.append('tags[' + index + ']', tag.value);
+                    });
+
+                    this.state.valueScreenshots.forEach((photo, index) => {
+                        formData.append('photos[' + index + ']', photo);
+                    });
+
+                    return axios
+                        .post(this.state.uploadEndpoint, formData)
+                        .then(response => {
+                            var project = response.data.data;
+
+                            if(project != null && typeof project != 'undefined'){
+                                this.props.history.push('/profile/' + this.props.auth.id);
+                            }
+                        });
+                }
+            });
+    }
 }
 
 GameUploadForm.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    auth: PropTypes.object
 }
 
-export default withStyles(styles)(GameUploadForm);
+export default withRouter(withStyles(styles)(GameUploadForm));

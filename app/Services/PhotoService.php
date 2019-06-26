@@ -39,4 +39,13 @@ class PhotoService implements Service
 
         return null;
     }
+
+    public function simpleUpload(UploadedFile $file, $caption = null)
+    {
+        $fileName = str_slug(sha1(Carbon::now())) . '.' . $file->guessExtension();
+
+        $path = $this->fileRepository->save($file, $fileName, 'photos');
+
+        return '/uploads/' . $path;
+    }
 }

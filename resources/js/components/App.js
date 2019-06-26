@@ -46,7 +46,7 @@ export default class App extends Component {
                     )} />
                     <PrivateRoute exact path="/home" component={HomePage} user={this.state.user} />
                     <PrivateRoute exact path="/games" component={GameDetailsPage} user={this.state.user} />
-                    <PrivateRoute exact path="/upload" component={GameUploadPage} user={this.state.user} />
+                    <PrivateRoute exact path="/upload" component={GameUploadPage} auth={this.state.user} />
                     <PrivateRoute exact path="/logout" component={LogoutPage} user={this.state.user} />
                     <PrivateRoute path="/profile/:id" component={ProfilePage} user={this.state.user} />
                     <Route component={Error404Page} />

@@ -10,6 +10,7 @@ import Chip from '@material-ui/core/Chip';
 import MenuItem from '@material-ui/core/MenuItem';
 import CancelIcon from '@material-ui/icons/Cancel';
 import PropTypes from 'prop-types';
+import { apiEndpointResolver } from '../helpers.js';
 
 const styles = theme => ({
     input: {
@@ -52,47 +53,6 @@ const styles = theme => ({
         height: theme.spacing(2)
     }
 });
-
-const suggestions = [
-    { label: '2D' },
-    { label: 'Pixel Art' },
-    { label: 'Adventure' },
-    { label: 'Singleplayer' },
-    { label: 'Horror' },
-    { label: 'Role Playing' },
-    { label: '3D' },
-    { label: 'Visual Novel' },
-    { label: 'Action' },
-    { label: 'Platformer' },
-    { label: 'Puzzle' },
-    { label: 'Unity' },
-    { label: 'Retro' },
-    { label: 'Simulation' },
-    { label: 'Fantasy' },
-    { label: 'Story Rich' },
-    { label: 'Short' },
-    { label: 'Psychological Horror' },
-    { label: 'Shooter' },
-    { label: 'Survival' },
-    { label: 'Arcade' },
-    { label: 'Casual' },
-    { label: 'Cute' },
-    { label: 'Romance' },
-    { label: 'Interactive Fiction' },
-    { label: 'Atmospheric' },
-    { label: 'First-Person' },
-    { label: 'Exploration' },
-    { label: 'Sci-fi' },
-    { label: '8-Bit' },
-    { label: 'Anime' },
-    { label: 'Funny' },
-    { label: '16-Bit' },
-    { label: 'Strategy' },
-    { label: 'Multiplayer' }
-].map(suggestion => ({
-    value: suggestion.label,
-    label: suggestion.label,
-}));
 
 function NoOptionsMessage(props) {
     return (
@@ -269,12 +229,18 @@ class TagSelect extends Component {
         super(props);
 
         this.state = {
+            tagsEndpoint: apiEndpointResolver('/tag/all'),
+            suggestions: [],
             valueTags: null
         }
     }
 
     render() {
         const { classes } = this.props;
+
+        if(this.props.auth != null && typeof this.props.auth != 'undefined' && this.state.suggestions.length == 0){
+            this.loadSuggestions();
+        }
 
         return(
             <Select
@@ -287,25 +253,43 @@ class TagSelect extends Component {
                         shrink: true,
                     }
                 }}
-                options={suggestions}
+                options={this.state.suggestions}
                 components={components}
                 value={this.state.valueTags}
-                onChange={this.setTags}
+                onChange={this.handleChange}
                 isMulti
                 placeholder="Select one or more tags..."
             />
         );
     }
 
-    setTags = (value) => {
+    loadSuggestions = () => {
+        axios
+            .get(this.state.tagsEndpoint + '?token=' + this.props.auth.authToken)
+            .then(response => {
+                let tags = response.data.data;
+
+                if(tags !== null && typeof tags !== 'undefined'){
+                    this.setState({
+                        suggestions: tags.map(tag => ({ value: tag.id, label: tag.name }))
+                    });
+                }
+            });
+    }
+
+    handleChange = (value) => {
         this.setState({
             valueTags: value
         });
+
+        this.props.handleChange(value);
     }
 }
 
 TagSelect.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    auth: PropTypes.object,
+    handleChange: PropTypes.func
 }
 
 export default withStyles(styles)(TagSelect);

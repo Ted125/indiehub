@@ -24,7 +24,8 @@ Route::prefix('/v1')->namespace('Api\v1')->middleware('jwt.auth', 'api-header')-
     });
 
     Route::prefix('photo')->group(function(){
-        Route::post('/upload', 'PhotoController@store');
+        Route::post('/store', 'PhotoController@store');
+        Route::post('/upload', 'PhotoController@upload');
     });
 
     Route::prefix('project')->group(function(){
