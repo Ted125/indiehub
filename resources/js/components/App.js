@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
@@ -9,26 +9,83 @@ import HomePage from './pages/HomePage';
 import ProfilePage from './pages/ProfilePage';
 import GameDetailsPage from './pages/GameDetailsPage';
 import GameUploadPage from './pages/GameUploadPage';
+import LogoutPage from './pages/LogoutPage';
+import { PrivateRoute } from '../helpers';
 
 export default class App extends Component {
     constructor(props){
         super(props);
+
+        this.state = {
+            user: null,
+            isLoggedIn: false
+        }
     }
 
     render() {
         return (
             <BrowserRouter>
-                <div>
-                    <Route exact path="/" component={LandingPage} />
-                    <Route exact path="/login" component={LoginPage} />
-                    <Route exact path="/register" component={RegisterPage} />
-                    <Route exact path="/home" component={HomePage} />
-                    <Route exact path="/profile" component={ProfilePage} />
-                    <Route exact path="/games" component={GameDetailsPage} />
-                    <Route exact path="/upload" component={GameUploadPage} />
-                </div>
+                <Switch>
+                    <Route exact path="/" component={LandingPage} user={this.state.user} />
+                    <Route exact path="/login" render={props => (
+                        <LoginPage
+                            user={this.state.user}
+                            onLoginSuccess={this.onLoginSuccess}
+                        />
+                    )} />
+                    <Route exact path="/register" render={props => (
+                        <RegisterPage
+                            user={this.state.user}
+                            onRegisterSuccess={this.onRegisterSuccess}
+                        />
+                    )} />
+                    <PrivateRoute exact path="/home" component={HomePage} user={this.state.user} />
+                    <PrivateRoute exact path="/profile" component={ProfilePage} user={this.state.user} />
+                    <PrivateRoute exact path="/games" component={GameDetailsPage} user={this.state.user} />
+                    <PrivateRoute exact path="/upload" component={GameUploadPage} user={this.state.user} />
+                    <PrivateRoute exact path="/logout" component={LogoutPage} user={this.state.user} />
+                </Switch>
             </BrowserRouter>
         );
+    }
+
+    componentDidMount() {
+        this.initializeAppState();
+    }
+
+    onLoginSuccess = (user) => {
+        this.saveAppState(user);
+    }
+
+    onRegisterSuccess = (user) => {
+        this.saveAppState(user);
+    }
+
+    initializeAppState = () => {
+        let state = localStorage.getItem('appState');
+
+        if (state) {
+            let appState = JSON.parse(state);
+
+            this.setState({
+                isLoggedIn: appState.isLoggedIn,
+                user: appState.user
+            });
+        }
+    }
+
+    saveAppState = (user) => {
+        let appState = {
+            isLoggedIn: true,
+            user: user
+        };
+
+        localStorage.setItem('appState', JSON.stringify(appState));
+
+        this.setState({
+            isLoggedIn: appState.isLoggedIn,
+            user: appState.user
+        });
     }
 }
 

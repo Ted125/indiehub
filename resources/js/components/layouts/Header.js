@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
@@ -8,11 +9,11 @@ import InputBase from '@material-ui/core/InputBase';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import Link from '@material-ui/core/Link';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { fade, withStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
     grow: {
         flexGrow: 1
     },
@@ -63,49 +64,78 @@ const useStyles = makeStyles(theme => ({
             width: 750
         },
     }
-}));
+});
 
-export default function Header() {
-    const classes = useStyles();
+class Header extends Component {
+    constructor(props){
+        super(props);
+    }
 
-    return (
-        <div className={classes.grow}>
-            <AppBar position="static">
-                <Container maxWidth="lg">
-                    <Toolbar>
-                        <Link className={classes.brand} component={RouterLink} to="/">
-                            <img
-                                src="/img/Indiemesh Logo.png"
-                                width="32"
-                                height="32"
-                            />
-                        </Link>
-                        <Link color="inherit" variant="h6" className={classes.title} component={RouterLink} to="/">
-                            Indiemesh
-                        </Link>
-                        <div className={classes.search}>
-                            <div className={classes.searchIcon}>
-                                <SearchIcon />
+    render(){
+        const { classes } = this.props;
+
+        var navButtons;
+
+        if(this.props.user){
+            navButtons = (
+                <Link color="inherit" variant="body2" className={classes.menuButton} href="/logout">
+                    Logout
+                </Link>
+            );
+        }else{
+            navButtons = (
+                <React.Fragment>
+                    <Link color="inherit" variant="body2" className={classes.menuButton} href="/login">
+                        Login
+                    </Link>
+                    <Link color="inherit" variant="body2" className={classes.menuButton} href="/register">
+                        Register
+                    </Link>
+                </React.Fragment>
+            )
+        }
+
+        return (
+            <div className={classes.grow}>
+                <AppBar position="static">
+                    <Container maxWidth="lg">
+                        <Toolbar>
+                            <Link className={classes.brand} component={RouterLink} to="/">
+                                <img
+                                    src="/img/Indiemesh Logo.png"
+                                    width="32"
+                                    height="32"
+                                />
+                            </Link>
+                            <Link color="inherit" variant="h6" className={classes.title} href="/">
+                                Indiemesh
+                            </Link>
+                            <div className={classes.search}>
+                                <div className={classes.searchIcon}>
+                                    <SearchIcon />
+                                </div>
+                                <InputBase
+                                    placeholder="Look for something..."
+                                    classes={{
+                                        root: classes.inputRoot,
+                                        input: classes.inputInput,
+                                    }}
+                                    inputProps={{ 'aria-label': 'Search' }}
+                                />
                             </div>
-                            <InputBase
-                                placeholder="Look for something..."
-                                classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }}
-                                inputProps={{ 'aria-label': 'Search' }}
-                            />
-                        </div>
-                        <div className={classes.grow} />
-                        <Link color="inherit" variant="body2" className={classes.menuButton} component={RouterLink} to="/login">
-                            Login
-                        </Link>
-                        <Link color="inherit" variant="body2" className={classes.menuButton} component={RouterLink} to="/register">
-                            Register
-                        </Link>
-                    </Toolbar>
-                </Container>
-            </AppBar>
-        </div>
-    );
+                            <div className={classes.grow} />
+                            {navButtons}
+                        </Toolbar>
+                    </Container>
+                </AppBar>
+            </div>
+        );
+    }
 }
+
+Header.propTypes = {
+    classes: PropTypes.object.isRequired,
+    user: PropTypes.object
+}
+
+export default withStyles(styles)(Header);
