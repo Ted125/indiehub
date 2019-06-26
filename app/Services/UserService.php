@@ -3,8 +3,8 @@
 namespace Indiemesh\Services;
 
 use Indiemesh\Repositories\UserRepository;
-use JWTAuth;
 use Illuminate\Support\Facades\Hash;
+use JWTAuth;
 
 class UserService implements Service
 {

@@ -6,11 +6,13 @@ use Indiemesh\Models\Tag;
 
 class TagRepository implements Repository
 {
-    public function listTags(){
+    public function listTags()
+    {
         return Tag::all();
     }
 
-    public function findTag($id){
+    public function findTag($id)
+    {
         return Tag::find($id);
     }
 }

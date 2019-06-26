@@ -18,20 +18,28 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::prefix('/v1')->namespace('Api\v1')->middleware('jwt.auth', 'api-header')->group(function(){
-    Route::prefix('user')->group(function(){
-        Route::get('/{id}', 'UserController@find');
-        Route::post('/follow/{id}', 'UserController@follow');
-        Route::post('/unfollow/{id}', 'UserController@unfollow');
-    });
-
     Route::prefix('category')->group(function(){
         Route::get('/all', 'CategoryController@list');
         Route::get('/{id}', 'CategoryController@find');
     });
 
+    Route::prefix('photo')->group(function(){
+        Route::post('/upload', 'PhotoController@store');
+    });
+
+    Route::prefix('project')->group(function(){
+        Route::post('/upload', 'ProjectController@store');
+    });
+
     Route::prefix('tag')->group(function(){
         Route::get('/all', 'TagController@list');
         Route::get('/{id}', 'TagController@find');
+    });
+
+    Route::prefix('user')->group(function(){
+        Route::get('/{id}', 'UserController@find');
+        Route::post('/follow/{id}', 'UserController@follow');
+        Route::post('/unfollow/{id}', 'UserController@unfollow');
     });
 });
 

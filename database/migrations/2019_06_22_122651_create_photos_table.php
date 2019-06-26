@@ -17,8 +17,10 @@ class CreatePhotosTable extends Migration
             $table->increments('id');
             $table->string('file_url');
             $table->string('caption')->nullable();
+            $table->integer('entity_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('entity_id')->references('id')->on('entities');
         });
     }
 
