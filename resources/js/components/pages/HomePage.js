@@ -50,7 +50,7 @@ class HomePage extends Component {
                             <FeedNav auth={this.props.user} />
                         </Grid>
                         <Grid item container xs={12} md={5} justify="center">
-                            <NewsFeed auth={this.props.user} userIds={this.state.user.following.data} emptyMessage={'Start following other indies!'} emptyMessageCover={'/img/feed_empty.png'} />
+                            <NewsFeed auth={this.props.user} userIds={this.state.user.following.data.map(user => user.id)} emptyMessage={'Start following other indies!'} emptyMessageCover={'/img/feed_empty.png'} />
                         </Grid>
                         <Grid item container xs={12} md={4} direction="column" spacing={3}>
                             <Grid item>

@@ -40,7 +40,7 @@ class ProjectController extends Controller
         $filter->setLastProjectId($lastProjectId);
         $filter->setRecentFirst($recentFirst);
 
-        $projects = $this->projectService->list(10, $filter);
+        $projects = $this->projectService->list(50, $filter);
 
         if($projects){
             return fractal()
