@@ -28,9 +28,8 @@ export default class App extends Component {
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" render={props => (
-                        <LoginPage
+                        <LandingPage
                             user={this.state.user}
-                            onLoginSuccess={this.onLoginSuccess}
                         />
                     )} />
                     <Route exact path="/login" render={props => (
