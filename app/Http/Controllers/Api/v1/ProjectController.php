@@ -18,6 +18,17 @@ class ProjectController extends Controller
         $this->projectService = $projectService;
     }
 
+    public function find(Request $request)
+    {
+        $project = $this->projectService->find($request->id);
+
+        if($project){
+            return fractal()->item($project, new ProjectTransformer(), 'project')->respond();
+        }
+
+        return response()->json(null);
+    }
+
     public function list(Request $request)
     {
         $userIds = $request->userIds;

@@ -27,6 +27,11 @@ class ProjectService implements Service
         $this->photoService = $photoService;
     }
 
+    public function find($id)
+    {
+        return $this->projectRepository->findProject($id);
+    }
+
     public function list($length = self::DEFAULT_LIST_LENGTH, ProjectFilter $filter) : AbstractPaginator
     {
         return $this->projectRepository->list($length, $filter);
