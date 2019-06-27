@@ -25,7 +25,7 @@ class LikeRepository implements Repository
             $like->entity_id = $entity->id;
             $like->user_id = $user->id;
 
-            if($like->save();){
+            if($like->save()){
                 $entity->like_count = count($like->entity->likes);
 
                 if($entity->save()){
@@ -45,7 +45,7 @@ class LikeRepository implements Repository
         ])->first();
 
         if($existingLike && $existingLike->delete()){
-            $entity->like_count = count($like->entity->likes);
+            $entity->like_count = count($existingLike->entity->likes);
 
             if($entity->save()){
                 return $entity;

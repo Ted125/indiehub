@@ -114,7 +114,7 @@ class ProfilePage extends Component{
                         <CoverPhoto src="/img/Stardew Valley Cover.jpg" />
                         <Grid container justify="center">
                             <Grid item>
-                                <Avatar aria-label="Indiemesh" className={classes.avatar}>
+                                <Avatar aria-label={this.state.user.username} className={classes.avatar}>
                                     {this.state.user.firstName.charAt(0) + this.state.user.lastName.charAt(0)}
                                 </Avatar>
                             </Grid>
@@ -144,14 +144,14 @@ class ProfilePage extends Component{
                             textColor="primary"
                             centered
                         >
-                            <Tab value='games' label="Games (3)" />
+                            <Tab value='games' label="Games" />
                             <Tab value='followers' label={ 'Followers (' + this.state.user.followers.data.length + ')' } />
                             <Tab value='following' label={ 'Following (' + this.state.user.following.data.length + ')' } />
                         </Tabs>
                     </Paper>
                     { this.state.currentTab == 'games' && (
                         <Grid container justify="center">
-                            <NewsFeed />
+                            <NewsFeed auth={this.props.user} userIds={[this.props.user.id]} />
                         </Grid>
                     ) }
                     { this.state.currentTab == 'followers' && (

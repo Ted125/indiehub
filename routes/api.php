@@ -23,12 +23,19 @@ Route::prefix('/v1')->namespace('Api\v1')->middleware('jwt.auth', 'api-header')-
         Route::get('/{id}', 'CategoryController@find');
     });
 
+    Route::prefix('entity')->group(function(){
+        Route::post('/like/{id}', 'EntityController@like');
+        Route::post('/unlike/{id}', 'EntityController@unlike');
+        Route::post('/comment/{id}', 'EntityController@comment');
+    });
+
     Route::prefix('photo')->group(function(){
         Route::post('/store', 'PhotoController@store');
         Route::post('/upload', 'PhotoController@upload');
     });
 
     Route::prefix('project')->group(function(){
+        Route::get('/list', 'ProjectController@list');
         Route::post('/upload', 'ProjectController@store');
     });
 

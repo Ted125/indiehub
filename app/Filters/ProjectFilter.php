@@ -7,38 +7,40 @@ use Illuminate\Database\Eloquent\Builder;
 class ProjectFilter implements Filter
 {
     private $userIds;
-    private $blacklist;
+    private $lastProjectId = 0;
     private $recentFirst = false;
 
     function build(Builder $builder): Builder
     {
+        $builder->join('entities', 'entities.id', '=', 'projects.entity_id');
+
         if($this->userIds){
-            $builder->whereIn('user_id', $this->userIds);
+            $builder->whereIn('entities.user_id', $this->userIds);
         }
 
-        if($this->blacklist){
-            $builder->whereNotIn('user_id', $this->blacklist);
+        if($this->lastProjectId){
+            $builder->where('projects.entity_id', '<', $this->lastProjectId);
         }
 
         if ($this->recentFirst){
-            $builder->orderByDesc('created_at');
+            $builder->orderByDesc('projects.created_at');
         }
 
         return $builder;
     }
 
-    public function setRecentFirst(bool $recentFirst)
+    public function setRecentFirst($recentFirst)
     {
         $this->recentFirst = $recentFirst;
     }
 
-    public function setUserIds(array $userIds)
+    public function setLastProjectId($id)
     {
-        $this->userIds = $userIds;
+        $this->lastProjectId = $id;
     }
 
-    public function setBlacklist(array $blacklist)
+    public function setUserIds($userIds)
     {
-        $this->blacklist = $blacklist;
+        $this->userIds = $userIds;
     }
 }

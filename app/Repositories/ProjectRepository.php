@@ -2,6 +2,7 @@
 
 namespace Indiemesh\Repositories;
 
+use Illuminate\Pagination\AbstractPaginator;
 use Indiemesh\Filters\ProjectFilter;
 use Indiemesh\Models\Entity;
 use Indiemesh\Models\Project;

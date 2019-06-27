@@ -21,8 +21,6 @@ class Tag extends Component {
             <Chip
                 label={this.props.label}
                 className={classes.chip}
-                href="#"
-                clickable
             />
         );
     }

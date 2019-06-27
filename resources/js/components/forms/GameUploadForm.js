@@ -172,7 +172,7 @@ class GameUploadForm extends Component {
         axios
             .post(this.state.photoUploadEndpoint, formData)
             .then(response => {
-                var path = response.data.path
+                var path = response.data.path;
 
                 if(path != null && typeof path != 'undefined'){
                     formData = new FormData();
@@ -182,7 +182,7 @@ class GameUploadForm extends Component {
                     formData.append('tagline', this.state.valueTagline);
                     formData.append('description', this.state.valueDescription);
                     formData.append('fileUrl', this.state.valueDownloadLink);
-                    formData.append('coverPhotoUrl', this.state.valueCoverPhoto);
+                    formData.append('coverPhotoUrl', path);
 
                     this.state.valueTags.forEach((tag, index) => {
                         formData.append('tags[' + index + ']', tag.value);

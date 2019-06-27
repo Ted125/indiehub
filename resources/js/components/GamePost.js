@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Moment from 'react-moment';
 import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -21,6 +22,7 @@ import Category from './Category';
 import CommentForm from './forms/CommentForm';
 import CommentList from './CommentList';
 import TagList from './TagList';
+import { apiEndpointResolver } from '../helpers.js';
 
 const styles = theme => ({
     avatar: {
@@ -28,6 +30,9 @@ const styles = theme => ({
     },
     card: {
         flex: 1
+    },
+    cardActions: {
+        padding:theme.spacing(1, 3, 1, 3)
     },
     commentCount: {
         marginLeft: theme.spacing(1)
@@ -46,60 +51,90 @@ class GamePost extends Component {
 
         this.state = {
             expanded: false,
-            setExpanded: false
+            setExpanded: false,
+            likeEndpoint: apiEndpointResolver('/entity/like'),
+            unlikeEndpoint: apiEndpointResolver('/entity/unlike'),
+            commentEndpoint: apiEndpointResolver('/entity/comment'),
+            project: this.props.project,
+            entity: this.props.project.entity
         };
     }
 
     render() {
         const { classes } = this.props;
 
+        if(this.props.project == null || typeof this.props.project == 'undefined'){
+            return (
+                <React.Fragment />
+            );
+        }
+
+        var likeState;
+
+        if(this.state.entity.data.likes.data.length > 0 && this.state.entity.data.likes.data.map(like => like.userId).includes(this.props.auth.id)){
+            likeState = (
+                <IconButton size="small" color="primary" aria-label="Like" onClick={this.unlike}>
+                    <ThumbUpIcon />
+                    <Typography variant="body2" color="textSecondary" className={classes.likeCount}>
+                        {this.state.entity.data.likeCount}
+                    </Typography>
+                </IconButton>
+            );
+        }else{
+            likeState = (
+                <IconButton size="small" color="default" aria-label="Like" onClick={this.like}>
+                    <ThumbUpOutlinedIcon />
+                    <Typography variant="body2" color="textSecondary" className={classes.likeCount}>
+                        {this.state.entity.data.likeCount}
+                    </Typography>
+                </IconButton>
+            );
+        }
+
         return (
             <Card className={classes.card}>
                 <CardHeader
                     action = {
-                        <Category label="2D Game" />
+                        <Category label={this.state.entity.data.category.data.name} />
                     }
                     avatar = {
-                        <Avatar aria-label="Indiemesh" className={classes.avatar}>
-                            IM
+                        <Avatar aria-label={this.state.entity.data.user.data.username} className={classes.avatar}>
+                            {this.state.entity.data.user.data.firstName.charAt(0) + this.state.entity.data.user.data.lastName.charAt(0)}
                         </Avatar>
                     }
                     title = {
-                        <Typography variant="body1" color="primary">
-                            Indiemesh
-                        </Typography>
+                        <Link href={'/profile/' + this.state.entity.data.user.data.id}>
+                            <Typography variant="body1" color="primary">
+                                {this.state.entity.data.user.data.firstName + ' ' + this.state.entity.data.user.data.lastName}
+                            </Typography>
+                        </Link>
                     }
-                    subheader="January 1, 2019"
+                    subheader={<Moment format="MMM D, YYYY">{this.state.project.createdAt}</Moment>}
                 />
                 <CardActionArea onClick={this.openModal}>
-                    <Link href="/games" color="inherit" underline="none">
+                    <Link href={'/games/' + this.state.project.id} color="inherit" underline="none">
                         <CardMedia
                             className={classes.media}
-                            image="/img/Fez.jpg"
-                            title="Fez"
+                            image={this.state.project.coverPhotoUrl}
+                            title={this.state.project.title}
                         />
                         <CardContent>
                             <Typography gutterBottom component="h2" variant="h5">
-                                Fez
+                                {this.state.project.title}
                             </Typography>
                             <Typography>
-                                Fez is a two-dimensional (2D) puzzle platform game set in a three-dimensional (3D) world.
+                                {this.state.project.tagline}
                             </Typography>
                         </CardContent>
                     </Link>
                 </CardActionArea>
-                <TagList />
-                <CardActions>
+                <TagList tags={this.state.entity.data.tags.data} />
+                <CardActions className={classes.cardActions}>
                     <Grid container justify="flex-start">
-                        <Grid item xs={2}>
-                            <IconButton size="small" color="default" aria-label="Like">
-                                <ThumbUpOutlinedIcon />
-                                <Typography variant="body2" color="textSecondary" className={classes.likeCount}>
-                                    100
-                                </Typography>
-                            </IconButton>
+                        <Grid item xs={2} md={1}>
+                            {likeState}
                         </Grid>
-                        <Grid item xs={2}>
+                        <Grid item xs={2} md={1}>
                             <IconButton
                                 size="small"
                                 color="default"
@@ -109,7 +144,7 @@ class GamePost extends Component {
                             >
                                 <ModeCommentOutlinedIcon />
                                 <Typography variant="body2" color="textSecondary" className={classes.commentCount}>
-                                    10
+                                    {this.state.entity.data.comments.data.length}
                                 </Typography>
                             </IconButton>
                         </Grid>
@@ -118,8 +153,8 @@ class GamePost extends Component {
                 <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                     <Divider light />
                     <CardContent>
-                        <CommentForm />
-                        <CommentList />
+                        <CommentForm handleSubmit={this.handleCommentFormSubmit}/>
+                        <CommentList comments={this.state.entity.data.comments.data} />
                     </CardContent>
                 </Collapse>
             </Card>
@@ -131,10 +166,72 @@ class GamePost extends Component {
             expanded: !prevState.expanded
         }));
     }
+
+    like = () => {
+        var endpoint = this.state.likeEndpoint + '/' + this.props.project.id;
+
+        var formData = new FormData();
+        formData.append('token', this.props.auth.authToken);
+
+        axios
+            .post(endpoint, formData)
+            .then(response => {
+                let entity = response.data.data;
+
+                if(entity != null && typeof entity != 'undefined'){
+                    this.setState({
+                        entity: { data: entity }
+                    });
+                }
+            });
+    }
+
+    unlike = () => {
+        var endpoint = this.state.unlikeEndpoint + '/' + this.props.project.id;
+
+        var formData = new FormData();
+        formData.append('token', this.props.auth.authToken);
+
+        axios
+            .post(endpoint, formData)
+            .then(response => {
+                let entity = response.data.data;
+
+                if(entity != null && typeof entity != 'undefined'){
+                    this.setState({
+                        entity: { data: entity }
+                    });
+                }
+            });
+    }
+
+    handleCommentFormSubmit = (e, comment) => {
+        e.preventDefault();
+
+        var endpoint = this.state.commentEndpoint + '/' + this.props.project.id;
+
+        var formData = new FormData();
+        formData.append('comment', comment);
+        formData.append('token', this.props.auth.authToken);
+
+        axios
+            .post(endpoint, formData)
+            .then(response => {
+                let entity = response.data.data;
+
+                if(entity != null && typeof entity != 'undefined'){
+                    this.setState({
+                        entity: { data: entity }
+                    });
+                }
+            });
+    }
 }
 
 GamePost.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    auth: PropTypes.object,
+    project: PropTypes.object
 }
 
 export default withStyles(styles)(GamePost);

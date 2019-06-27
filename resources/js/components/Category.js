@@ -21,8 +21,6 @@ class Category extends Component {
             <Chip
                 label={this.props.label}
                 className={classes.chip}
-                href="#"
-                clickable
                 color="primary"
             />
         );

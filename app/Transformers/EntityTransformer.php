@@ -8,11 +8,7 @@ use League\Fractal\TransformerAbstract;
 class EntityTransformer extends TransformerAbstract
 {
     protected $defaultIncludes = [
-        'likes', 'comments', 'category', 'tags', 'photos'
-    ];
-
-    protected $availableIncludes = [
-        'user'
+        'user', 'likes', 'comments', 'category', 'tags', 'photos'
     ];
 
     /**

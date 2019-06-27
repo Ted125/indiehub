@@ -76,7 +76,6 @@ class FeedNav extends Component {
                     <Typography variant="body2" color="textSecondary">
                         Hot Tags
                     </Typography>
-                    <TagList />
                 </CardContent>
             </Card>
         );

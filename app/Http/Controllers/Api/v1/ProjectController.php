@@ -2,10 +2,12 @@
 
 namespace Indiemesh\Http\Controllers\Api\v1;
 
+use Illuminate\Http\Request;
+use Indiemesh\Filters\ProjectFilter;
 use Indiemesh\Http\Controllers\Controller;
 use Indiemesh\Services\ProjectService;
 use Indiemesh\Transformers\ProjectTransformer;
-use Illuminate\Http\Request;
+use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 
 class ProjectController extends Controller
 {
@@ -14,6 +16,29 @@ class ProjectController extends Controller
     public function __construct(ProjectService $projectService)
     {
         $this->projectService = $projectService;
+    }
+
+    public function list(Request $request)
+    {
+        $userIds = $request->userIds;
+        $recentFirst = $request->recentFirst;
+        $lastProjectId = $request->lastProjectId;
+
+        $filter = new ProjectFilter();
+        $filter->setUserIds($userIds);
+        $filter->setLastProjectId($lastProjectId);
+        $filter->setRecentFirst($recentFirst);
+
+        $projects = $this->projectService->list(10, $filter);
+
+        if($projects){
+            return fractal()
+                ->collection($projects, new ProjectTransformer(), 'project')
+                ->paginateWith(new IlluminatePaginatorAdapter($projects))
+                ->respond();
+        }
+
+        return response()->json(null);
     }
 
     public function store(Request $request)

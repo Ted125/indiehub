@@ -2,6 +2,8 @@
 
 namespace Indiemesh\Services;
 
+use Illuminate\Pagination\AbstractPaginator;
+use Indiemesh\Filters\ProjectFilter;
 use Indiemesh\Repositories\EntityRepository;
 use Indiemesh\Repositories\EntityTagRepository;
 use Indiemesh\Repositories\ProjectRepository;
@@ -23,6 +25,11 @@ class ProjectService implements Service
         $this->projectRepository = $projectRepository;
         $this->tagRepository = $tagRepository;
         $this->photoService = $photoService;
+    }
+
+    public function list($length = self::DEFAULT_LIST_LENGTH, ProjectFilter $filter) : AbstractPaginator
+    {
+        return $this->projectRepository->list($length, $filter);
     }
 
     public function uploadProject($categoryId, $title, $tagline, $description, $fileUrl, $coverPhotoUrl, $tags, $photos)
@@ -51,7 +58,7 @@ class ProjectService implements Service
                             return null;
                         }
                     }
-                    
+
                     foreach ($photos as $photo) {
                         $temp = $this->photoService->uploadPhoto($entity->id, $photo);
 

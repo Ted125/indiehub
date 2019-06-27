@@ -16,7 +16,7 @@ class Entity extends Model
 
     public function comments()
     {
-        return $this->hasMany(EntityComment::class);
+        return $this->hasMany(EntityComment::class)->orderBy('entity_comments.created_at', 'desc');
     }
 
     public function user()

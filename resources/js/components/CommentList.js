@@ -7,7 +7,8 @@ import Comment from './Comment';
 const styles = theme => ({
     root: {
         marginTop: theme.spacing(1),
-        marginBottom: theme.spacing(1)
+        marginBottom: theme.spacing(1),
+        padding: theme.spacing(3)
     }
 });
 
@@ -19,30 +20,23 @@ class CommentList extends Component {
     render() {
         const { classes } = this.props;
 
+        var comments = []
+
+        this.props.comments.forEach(comment => {
+            comments.push(<Comment key={comment.id} comment={comment}></Comment>);
+        });
+
         return (
             <Grid container justify-content="flex-start" direction="column" spacing={2} className={classes.root}>
-                <Grid item>
-                    <Comment
-                        text="Great game! I can't wait to see more from this. Good luck!"
-                    />
-                </Grid>
-                <Grid item>
-                    <Comment
-                        text="Wow, cool post! Thanks for sharing!"
-                    />
-                </Grid>
-                <Grid item>
-                    <Comment
-                        text="Hello! How may I contact you? I am trying to build a similar game. I need help with something. Please pm me. Thanks."
-                    />
-                </Grid>
+                {comments}
             </Grid>
         );
     }
 }
 
 CommentList.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    comments: PropTypes.array
 }
 
 export default withStyles(styles)(CommentList);
