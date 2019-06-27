@@ -1,5 +1,5 @@
-<p>composer install</p><br/>
-<p>cp .env.example .env</p><br/>
-<p>php artisan key:generate</p><br/>
-<p>php artisan migrate</p><br/>
-<p>php artisan db:seed</p><br/>
+<p>composer install</p>
+<p>cp .env.example .env</p>
+<p>php artisan key:generate</p>
+<p>php artisan migrate</p>
+<p>php artisan db:seed</p>
