@@ -15,6 +15,11 @@ class UserService implements Service
         $this->userRepository = $userRepository;
     }
 
+    public function list($length = self::DEFAULT_LIST_LENGTH, $filter)
+    {
+        return $this->userRepository->list($length, $filter);
+    }
+
     public function register($firstName, $lastName, $username, $email, $birthdate, $password)
     {
         $user = $this->userRepository->createUser(

@@ -29,17 +29,17 @@ class CommentFilter implements Filter
         return $builder;
     }
 
-    public function setRecentFirst(bool $recentFirst)
+    public function setRecentFirst($recentFirst)
     {
         $this->recentFirst = $recentFirst;
     }
 
-    public function setEntityId(int $entityId): void
+    public function setEntityId($entityId)
     {
         $this->entityId = $entityId;
     }
 
-    public function setLastComment(int $commentId)
+    public function setLastComment($commentId)
     {
         $this->lastComment = $commentId;
     }

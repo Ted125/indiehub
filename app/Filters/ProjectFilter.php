@@ -16,6 +16,8 @@ class ProjectFilter implements Filter
 
         if($this->userIds){
             $builder->whereIn('entities.user_id', $this->userIds);
+        }else{
+            $builder->where('entities.user_id', '=', 0);
         }
 
         if($this->lastProjectId){

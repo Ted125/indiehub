@@ -7,6 +7,11 @@ use Indiemesh\Models\UserFollower;
 
 class UserRepository implements Repository
 {
+    public function list($length, $filter)
+    {
+        return $filter->build(User::query())->paginate($length);
+    }
+
     public function findUser($id)
     {
         return User::find($id);

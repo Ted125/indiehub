@@ -151,7 +151,7 @@ class ProfilePage extends Component{
                     </Paper>
                     { this.state.currentTab == 'games' && (
                         <Grid container justify="center">
-                            <NewsFeed auth={this.props.user} userIds={[this.props.user.id]} />
+                            <NewsFeed auth={this.props.user} userIds={[this.state.user.id]} emptyMessage={'No games to show'} />
                         </Grid>
                     ) }
                     { this.state.currentTab == 'followers' && (

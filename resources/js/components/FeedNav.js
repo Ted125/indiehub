@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -40,17 +41,21 @@ class FeedNav extends Component {
 
         return (
             <Card className={classes.card}>
-                <CardActionArea className={classes.cardActionArea}>
+                <CardActionArea className={classes.cardActionArea} onClick={()=>{
+                    this.props.history.push('/profile/' + this.props.auth.id)
+                }
+                }>
                     <Grid container direction="column" justify="center" spacing={2}>
                         <Grid item container justify="space-between">
                             <Grid item xs={2}>
                                 <Avatar aria-label="Indiemesh" className={classes.avatar}>
-                                    IM
+                                {classes.avatar}>
+                                    {this.props.auth.firstName.charAt(0) + this.props.auth.lastName.charAt(0)}
                                 </Avatar>
                             </Grid>
                             <Grid item xs={10}>
                                 <Typography variant="body1" color="primary">
-                                    Indiemesh
+                                    {this.props.auth.firstName + ' ' + this.props.auth.lastName}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -72,18 +77,14 @@ class FeedNav extends Component {
                     </ListItem>
                 </List>
                 <Divider />
-                <CardContent>
-                    <Typography variant="body2" color="textSecondary">
-                        Hot Tags
-                    </Typography>
-                </CardContent>
             </Card>
         );
     }
 }
 
 FeedNav.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    auth: PropTypes.object
 }
 
-export default withStyles(styles)(FeedNav);
+export default withRouter(withStyles(styles)(FeedNav));

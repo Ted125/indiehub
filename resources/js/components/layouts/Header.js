@@ -66,7 +66,14 @@ const styles = theme => ({
         [theme.breakpoints.up('md')]: {
             width: 750
         },
-    }
+    },
+    uploadButton: {
+        margin: theme.spacing(1),
+        padding: theme.spacing(1),
+        '&:hover': {
+            color: 'white',
+        }
+    },
 });
 
 class Header extends Component {
@@ -87,15 +94,15 @@ class Header extends Component {
         if(this.props.user){
             navButtons = (
                 <React.Fragment>
-                    <Link color="inherit" variant="body2" className={classes.menuButton} href="/upload">
-                        <Button
-                            color="secondary"
-                            size="small"
-                            variant="contained"
-                        >
-                            Upload
-                        </Button>
-                    </Link>
+                    <Button
+                        color="secondary"
+                        size="small"
+                        variant="contained"
+                        href="/upload"
+                        className={classes.uploadButton}
+                    >
+                        Upload
+                    </Button>
                     <Link color="inherit" variant="body2" className={classes.menuButton} href="/home">
                         Feed
                     </Link>

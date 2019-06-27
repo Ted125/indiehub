@@ -78,20 +78,20 @@ class UserListItem extends Component {
         return (
             <ListItem>
                 <Grid container justify="space-between" spacing={1}>
-                    <Grid item xs={1}>
+                    <Grid item xs={2} md={1}>
                         <Avatar aria-label="Indiemesh" className={classes.avatar}>
                             {this.state.user.firstName.charAt(0) + this.state.user.lastName.charAt(0)}
                         </Avatar>
                     </Grid>
-                    <Grid item xs={8}>
+                    <Grid item xs={6} md={8}>
                         <Link color="inherit" variant="body2" href={'/profile/' + this.props.user.id}>
                             <Typography variant="body2" color="textSecondary" align="left">
                                 {this.state.user.firstName + ' ' + this.state.user.lastName}
                             </Typography>
                         </Link>
                     </Grid>
-                    <Grid item xs={3}>
-                        {followState}
+                    <Grid item xs={4} md={2}>
+                        {(this.props.showFollowButton) ? followState : <React.Fragment/>}
                     </Grid>
                 </Grid>
             </ListItem>
@@ -156,7 +156,8 @@ class UserListItem extends Component {
 UserListItem.propTypes = {
     classes: PropTypes.object.isRequired,
     auth: PropTypes.object,
-    user: PropTypes.object
+    user: PropTypes.object,
+    showFollowButton: PropTypes.bool
 }
 
 export default withStyles(styles)(UserListItem);

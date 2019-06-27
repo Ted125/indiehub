@@ -37,7 +37,13 @@ const styles = theme => ({
     },
     paper: {
         marginBottom: theme.spacing(3)
-    }
+    },
+    commentCount: {
+        marginLeft: theme.spacing(1)
+    },
+    likeCount: {
+        marginLeft: theme.spacing(1)
+    },
 });
 
 class GameDetailsPage extends Component {

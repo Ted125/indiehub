@@ -2,10 +2,12 @@
 
 namespace Indiemesh\Http\Controllers\Api\v1;
 
+use Indiemesh\Filters\UserFilter;
 use Indiemesh\Http\Controllers\Controller;
 use Indiemesh\Services\UserService;
 use Indiemesh\Transformers\UserTransformer;
 use Illuminate\Http\Request;
+use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 
 class UserController extends Controller
 {
@@ -14,6 +16,27 @@ class UserController extends Controller
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
+    }
+
+    public function list(Request $request)
+    {
+        $excludes = $request->excludeIds;
+        $random = $request->random;
+
+        $filter = new UserFilter();
+        $filter->setExcludes($excludes);
+        $filter->randomize($random);
+
+        $users = $this->userService->list(10, $filter);
+
+        if($users){
+            return fractal()
+                ->collection($users, new UserTransformer(), 'user')
+                ->paginateWith(new IlluminatePaginatorAdapter($users))
+                ->respond();
+        }
+
+        return response()->json(null);
     }
 
     public function login(Request $request)

@@ -131,10 +131,10 @@ class GamePost extends Component {
                 <TagList tags={this.state.entity.data.tags.data} />
                 <CardActions className={classes.cardActions}>
                     <Grid container justify="flex-start">
-                        <Grid item xs={2} md={1}>
+                        <Grid item xs={4} md={2}>
                             {likeState}
                         </Grid>
-                        <Grid item xs={2} md={1}>
+                        <Grid item xs={4} md={2}>
                             <IconButton
                                 size="small"
                                 color="default"
